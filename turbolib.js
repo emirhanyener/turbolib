@@ -1,7 +1,10 @@
-import { config } from "./Settings.js";
+import { config } from "./Config.js";
 
-let canvas = document.getElementById(config.canvas_object_id);
+let canvas = document.getElementById(config.canvas.id);
 let ctx = canvas.getContext("2d");
+
+canvas.width = config.canvas.width;
+canvas.height = config.canvas.height;
 
 setInterval(() => {
     run();
