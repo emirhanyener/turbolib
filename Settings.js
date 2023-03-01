@@ -1,7 +1,9 @@
 let config = {
-    canvas_object_id: "canvas",
-    canvas_width: 400,
-    canvas_height: 400
+    canvas: {
+        id: "canvas",
+        width: 400,
+        height: 400
+    }
 };
 
 export { config };
