@@ -1,6 +1,9 @@
 export class GameObjects{
     constructor(){
-        this.gameobjects;
+        this.gameobjects = [];
+    }
+    getGameObjects(){
+        return this.gameobjects;
     }
     addGameObject(gameObject){
         this.gameobjects.push(gameObject);
