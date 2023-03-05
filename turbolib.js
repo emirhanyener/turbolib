@@ -18,6 +18,6 @@ setInterval(() => {
 
 function run(){
     gameObjects.getGameObjects().forEach(element => {
-        ctx.fillRect(element.position.position_x, element.position.position_y, element.size.size_x, element.size.size_y);
+        ctx.fillRect(element.position.x, element.position.y, element.size.x, element.size.y);
     });
 }
