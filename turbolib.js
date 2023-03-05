@@ -10,7 +10,7 @@ let ctx = canvas.getContext("2d");
 canvas.width = config.canvas.width;
 canvas.height = config.canvas.height;
 
-let gameObjects = new GameObjects();
+export let gameObjects = new GameObjects();
 
 setInterval(() => {
     run();
