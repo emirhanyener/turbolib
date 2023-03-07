@@ -4,7 +4,4 @@ export class GameObject{
         this.position = position;
         this.size = size;
     }
-    getName(){
-        return this.name;
-    }
 }
