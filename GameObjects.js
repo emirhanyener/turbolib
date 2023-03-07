@@ -16,5 +16,6 @@ export class GameObjects{
                 return this.gameobjects[index];
             }
         }
+        console.error("GameObject not found");
     }
 }
