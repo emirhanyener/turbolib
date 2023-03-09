@@ -7,4 +7,8 @@ export class Size{
         this.x = x;
         this.y = y;
     }
+    scale(newScale){
+        this.x = this.x * newScale;
+        this.y = this.y * newScale;
+    }
 }
