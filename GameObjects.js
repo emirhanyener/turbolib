@@ -11,11 +11,7 @@ export class GameObjects{
         this.gameobjects.push(gameObject);
     }
     findGameObject(name){
-        for (let index = 0; index < this.gameobjects.length; index++) {
-            if(this.gameobjects[index].name == name){
-                return this.gameobjects[index];
-            }
-        }
+        return this.gameobjects.find((gameObject)=>gameObject.name==name);
         console.error("GameObject not found");
     }
 }
