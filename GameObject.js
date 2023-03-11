@@ -4,4 +4,11 @@ export class GameObject{
         this.position = position;
         this.size = size;
     }
+
+    setSize(x, y){
+        this.size = new Size;
+    }
+    setPosition(x, y){
+        this.position = new Position(x, y);
+    }
 }
