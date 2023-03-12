@@ -7,4 +7,8 @@ export class Position{
         this.x = x;
         this.y = y;
     }
+    add(x, y){
+        this.x = this.x + x;
+        this.y = this.y + y;
+    }
 }
