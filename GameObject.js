@@ -1,3 +1,6 @@
+import { physics } from "./turbolib.js";
+import { Physics } from "./Physics.js";
+
 export class GameObject{
     constructor(name, position, size){
         this.name = name;
@@ -10,5 +13,14 @@ export class GameObject{
     }
     setPosition(x, y){
         this.position = new Position(x, y);
+    }
+    addPhysics(){
+        if(this.getPhysics()){
+            console.error("Physics already added");
+        }
+        else{
+            physics.push(new Physics(this));
+        }
+        
     }
 }
