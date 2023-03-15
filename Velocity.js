@@ -1,5 +1,5 @@
 export class Velocity{
-    constructor(velocity_x, velocity_y){
+    constructor(x, y){
         this.x = x;
         this.y = y;
     }
