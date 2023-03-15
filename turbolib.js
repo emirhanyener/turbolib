@@ -25,4 +25,7 @@ function run(){
     gameObjects.getGameObjects().forEach(element => {
         ctx.fillRect(element.position.x, element.position.y, element.size.x, element.size.y);
     });
+    physics.forEach(element => {
+        element.calculate();
+    });
 }
