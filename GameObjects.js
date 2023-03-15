@@ -1,4 +1,5 @@
 import { GameObject } from "./GameObject.js";
+import { Physics } from "./Physics.js";
 
 export class GameObjects{
     constructor(){
