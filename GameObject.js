@@ -23,4 +23,8 @@ export class GameObject{
         }
         
     }
+    getPhysics(){
+        return physics.find((physics)=>physics.gameObject.name==this.name);
+        console.error("Physics not found");
+    }
 }
