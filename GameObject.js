@@ -21,10 +21,14 @@ export class GameObject{
         else{
             physics.push(new Physics(this));
         }
-        
     }
     getPhysics(){
-        return physics.find((physics)=>physics.gameObject.name==this.name);
+        let temp = physics.find((physics) => physics.gameObject.name == this.name);
+
+        if(temp){
+            return temp;
+        }
+
         console.error("Physics not found");
     }
 }
