@@ -1,3 +1,4 @@
+import { config } from "./Config.js";
 import { Velocity } from "./Velocity.js";
 
 export class Physics{
@@ -8,6 +9,7 @@ export class Physics{
     }
 
     calculate(){
+        this.velocity.add(0, config.gravity / 50);
         this.gameObject.position.add(this.velocity.x, this.velocity.y);
     }
 }
