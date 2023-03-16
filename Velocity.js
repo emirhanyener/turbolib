@@ -8,4 +8,9 @@ export class Velocity{
         this.x = x;
         this.y = y;
     }
+
+    add(x, y){
+        this.x += x;
+        this.y += y;
+    }
 }
