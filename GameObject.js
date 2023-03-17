@@ -1,4 +1,4 @@
-import { physics } from "./turbolib.js";
+import { physics, gameObjects } from "./turbolib.js";
 import { Physics } from "./Physics.js";
 
 export class GameObject{
@@ -30,5 +30,9 @@ export class GameObject{
         }
 
         console.error("Physics not found");
+    }
+
+    destroy(){
+        gameObjects.getGameObjects().splice(gameObjects.getGameObjects().indexOf(this), 1);
     }
 }
