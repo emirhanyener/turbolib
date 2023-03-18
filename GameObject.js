@@ -32,6 +32,14 @@ export class GameObject{
         console.error("Physics not found");
     }
 
+    static find(name){
+        return gameObjects.findGameObject(name);
+    }
+
+    static create(name, position, size){
+        return new GameObject(name, position, size);
+    }
+
     destroy(){
         gameObjects.getGameObjects().splice(gameObjects.getGameObjects().indexOf(this), 1);
     }
