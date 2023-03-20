@@ -12,4 +12,10 @@ export class Physics{
         this.velocity.add(0, this.mass * config.gravity / 100);
         this.gameObject.position.add(this.velocity.x, this.velocity.y);
     }
+    getMass(){
+        return this.mass;
+    }
+    setMass(mass){
+        this.mass = mass;
+    }
 }
