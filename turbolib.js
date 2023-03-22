@@ -23,7 +23,7 @@ function run(){
     ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);
     ctx.fillStyle = "#000000";
     gameObjects.getGameObjects().forEach(element => {
-        ctx.fillRect(element.position.x, element.position.y, element.size.x, element.size.y);
+        ctx.fillRect(element.position.x - element.size.x / 2, element.position.y - element.size.y / 2, element.size.x, element.size.y);
     });
     physics.forEach(element => {
         element.calculate();
