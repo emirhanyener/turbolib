@@ -1,4 +1,5 @@
 import { config } from "./Config.js";
+import { Size } from "./Size.js";
 import { Velocity } from "./Velocity.js";
 
 export class Physics{
@@ -9,8 +10,13 @@ export class Physics{
     }
 
     calculate(){
-        this.velocity.add(0, this.mass * config.gravity / 100);
         this.gameObject.position.add(this.velocity.x, this.velocity.y);
+        if(this.gameObject.checkTrigger(0, 0, 0, this.gameObject.size.y).length == 0){
+            this.velocity.add(0, this.mass * config.gravity / 100);
+        } else {
+            this.velocity.y = 0;
+        }
+        
     }
     getMass(){
         return this.mass;
