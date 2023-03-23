@@ -15,7 +15,7 @@ export class GameObject{
         this.position = new Position(x, y);
     }
     addPhysics(){
-        if(this.getPhysics()){
+        if(physics.find((physics) => physics.gameObject.name == this.name)){
             console.error("Physics already added");
         }
         else{
