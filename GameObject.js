@@ -1,4 +1,4 @@
-import { physics, gameObjects } from "./turbolib.js";
+import { physics, resources } from "./turbolib.js";
 import { Physics } from "./Physics.js";
 
 export class GameObject{
@@ -33,7 +33,7 @@ export class GameObject{
     }
 
     static find(name){
-        return gameObjects.findGameObject(name);
+        return resources.findGameObject(name);
     }
 
     static create(name, position, size){
@@ -41,7 +41,7 @@ export class GameObject{
     }
 
     destroy(){
-        gameObjects.getGameObjects().splice(gameObjects.getGameObjects().indexOf(this), 1);
+        resources.getGameObjects().splice(gameObjects.getGameObjects().indexOf(this), 1);
     }
 
     checkTrigger(offsetX, offsetY, x, y) {
@@ -49,7 +49,7 @@ export class GameObject{
 		let step = Math.round(Math.sqrt(Math.pow(x - offsetX, 2) + Math.pow(y - offsetY, 2)));
 
 		for (let i = 0; i < step + 2; i++) {
-			gameObjects.getGameObjects().forEach((item) => {
+			resources.getGameObjects().forEach((item) => {
 				if (item == this) {
 					return;
 				}

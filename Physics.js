@@ -19,8 +19,8 @@ export class Physics{
             this.isGrounded = true;
             this.velocity.y = 0;
         }
-        
     }
+    
     getMass(){
         return this.mass;
     }

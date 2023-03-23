@@ -1,7 +1,7 @@
 import { GameObject } from "./GameObject.js";
 import { Physics } from "./Physics.js";
 
-export class GameObjects{
+export class Resources{
     constructor(){
         this.gameobjects = [];
     }

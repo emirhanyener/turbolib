@@ -3,7 +3,7 @@ import { GameObject } from "./GameObject.js";
 import { Position } from "./Position.js";
 import { Size } from "./Size.js";
 import { Physics } from "./Physics.js";
-import { GameObjects } from "./GameObjects.js";
+import { Resources } from "./Resources.js";
 
 let canvas = document.getElementById(config.canvas.id);
 let ctx = canvas.getContext("2d");
@@ -11,7 +11,7 @@ let ctx = canvas.getContext("2d");
 canvas.width = config.canvas.width;
 canvas.height = config.canvas.height;
 
-export let gameObjects = new GameObjects();
+export let resources = new Resources();
 export let physics = [];
 
 setInterval(() => {
@@ -22,7 +22,7 @@ function run(){
     ctx.fillStyle = config.canvas.background_color;
     ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);
     ctx.fillStyle = "#000000";
-    gameObjects.getGameObjects().forEach(element => {
+    resources.getGameObjects().forEach(element => {
         ctx.fillRect(element.position.x - element.size.x / 2, element.position.y - element.size.y / 2, element.size.x, element.size.y);
     });
     physics.forEach(element => {
