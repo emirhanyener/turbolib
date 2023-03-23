@@ -11,7 +11,7 @@ export class Physics{
 
     calculate(){
         this.gameObject.position.add(this.velocity.x, this.velocity.y);
-        if(this.gameObject.checkTrigger(0, 0, 0, this.gameObject.size.y).length == 0){
+        if(this.gameObject.checkTrigger(0, 0, 0, this.gameObject.size.y / 2).length == 0){
             this.velocity.add(0, this.mass * config.gravity / 100);
         } else {
             this.velocity.y = 0;
