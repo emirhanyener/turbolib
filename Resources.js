@@ -4,6 +4,7 @@ import { Physics } from "./Physics.js";
 export class Resources{
     constructor(){
         this.gameobjects = [];
+        this.images = [];
     }
     getGameObjects(){
         return this.gameobjects;
@@ -19,5 +20,18 @@ export class Resources{
         }
 
         console.error("GameObject not found");
+    }
+
+    addImage(image){
+        this.images.push(image);
+    }
+    findImage(name){
+        let temp = this.images.find((image) => image.name == name);
+        
+        if(temp){
+            return temp;
+        }
+
+        console.error("Image not found");
     }
 }
