@@ -6,8 +6,12 @@ export class GameObject{
         this.name = name;
         this.position = position;
         this.size = size;
+        this.image;
     }
 
+    setImage(name){
+        this.image = resources.findImage(name);
+    }
     setSize(x, y){
         this.size = new Size;
     }
