@@ -1,5 +1,6 @@
 import { GameObject } from "./GameObject.js";
 import { Physics } from "./Physics.js";
+import { ImageObject } from "./index.js";
 
 export class Resources{
     constructor(){
@@ -33,5 +34,15 @@ export class Resources{
         }
 
         console.error("Image not found");
+    }
+
+    createAnimation(name, images, animationSpeed){
+        this.addImage(new ImageObject(this.findImage(images[0]).image[0].src, name));
+
+        for (let index = 1; index < images.length; index++) {
+            this.findImage(name).addImage(images[index]);
+        }
+
+        this.findImage(name).setAnimationSpeed(animationSpeed);
     }
 }
