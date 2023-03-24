@@ -1,5 +1,7 @@
 import { physics, resources } from "./turbolib.js";
 import { Physics } from "./Physics.js";
+import { Position } from "./Position.js";
+import { Size } from "./Size.js";
 
 export class GameObject{
     constructor(name, position, size){
@@ -40,8 +42,13 @@ export class GameObject{
         return resources.findGameObject(name);
     }
 
-    static create(name, position, size){
-        return new GameObject(name, position, size);
+    static createWith(name, position, size){
+        let temp = new GameObject(name, position, size);
+        resources.addGameObject(temp);
+    }
+    static create(name, posX, posY, sizeX, sizeY){
+        let temp = new GameObject(name, new Position(posX, posY), new Size(sizeX, sizeY));
+        resources.addGameObject(temp);
     }
 
     destroy(){
