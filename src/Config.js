@@ -5,5 +5,6 @@ export let config = {
         height: 400,
         background_color: "#adf"
     },
+    images_path: "",
     gravity: 9.81
 };

@@ -11,7 +11,7 @@ export let physics = [];
 export let time = 0;
 
 async function getImages(){
-    let res =  await fetch('./images.json');
+    let res =  await fetch(config.images_path + './images.json');
     let images = await res.json();
     return images;
 }
