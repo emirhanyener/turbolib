@@ -21,6 +21,7 @@ git clone https://github.com/emirhanyener/turbolib.git
 - [X] Animation
 - [ ] Object function
 - [ ] Global function
+- [ ] Camera
 - [ ] Trigger event
 - [ ] Collision
 - [ ] Alerts
