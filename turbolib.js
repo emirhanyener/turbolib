@@ -27,12 +27,15 @@ function run(){
     time++;
     ctx.fillStyle = config.canvas.background_color;
     ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);
-    ctx.fillStyle = "#000000";
     resources.getGameObjects().forEach(element => {
+        ctx.fillStyle = "#000000";
         if(element.image)
-            ctx.drawImage(element.image.getImage(), element.position.x - element.size.x / 2, element.position.y - element.size.y / 2, element.size.x, element.size.y)
-        else
-            ctx.fillRect(element.position.x - element.size.x / 2, element.position.y - element.size.y / 2, element.size.x, element.size.y);
+            ctx.drawImage(element.image.getImage(), element.position.x - element.size.x / 2, element.position.y - element.size.y / 2, element.size.x, element.size.y) 
+        else{
+            if(element.color)
+                ctx.fillStyle = element.color;
+                ctx.fillRect(element.position.x - element.size.x / 2, element.position.y - element.size.y / 2, element.size.x, element.size.y);
+        }
     });
     physics.forEach(element => {
         element.calculate();
