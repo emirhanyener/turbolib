@@ -9,10 +9,14 @@ export class GameObject{
         this.position = position;
         this.size = size;
         this.image;
+        this.color;
     }
 
     setImage(name){
         this.image = resources.findImage(name);
+    }
+    setColor(color){
+        this.color = color;
     }
     setSize(x, y){
         this.size = new Size;
