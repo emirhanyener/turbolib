@@ -3,6 +3,7 @@ export let config = {
         id: "canvas",
         width: 400,
         height: 400,
+        resolution_multipler: 2,
         background_color: "#adf"
     },
     images_path: "",
