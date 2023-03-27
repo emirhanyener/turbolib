@@ -2,6 +2,17 @@
 ## About
 `turbolib` is a high-level javascript game library.
 
+## Featues
+- [X] GameObject physics
+- [X] Easy image manage
+- [X] Animation
+- [ ] Object function
+- [ ] Global function
+- [ ] Camera
+- [ ] Trigger event
+- [ ] Collision
+- [ ] Alerts
+
 ## Installation
 This project created with JavaScript. It doesn't need any requirements.
 1. Clone the project:
@@ -14,17 +25,6 @@ git clone https://github.com/emirhanyener/turbolib.git
 ```html
 <script type="module" src="turbolib.js"></script>
 ``` 
-
-## Featues
-- [X] GameObject physics
-- [X] Easy image manage
-- [X] Animation
-- [ ] Object function
-- [ ] Global function
-- [ ] Camera
-- [ ] Trigger event
-- [ ] Collision
-- [ ] Alerts
 
 ## License
 [MIT License](LICENSE)
