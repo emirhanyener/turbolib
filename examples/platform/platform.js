@@ -15,7 +15,6 @@ GameObject.find("Block2").setColor("#DA1");
 
 GameObject.find("Player").addPhysics();
 
-resources.createAnimation("anim1", ["idle1", "idle2", "idle3", "idle4", "idle5", "idle6", "idle7", "idle8"], 6);
 GameObject.find("Player").setImage("anim1");
 
 document.addEventListener("keydown", keyfn);
