@@ -32,5 +32,21 @@
             "src": "images/rocket/rocket8.png",
             "name": "idle8"
         }
+    ],
+    "animations":[
+        {
+            "name": "anim1",
+            "images":[
+                "idle1",
+                "idle2",
+                "idle3",
+                "idle4",
+                "idle5",
+                "idle6",
+                "idle7",
+                "idle8"
+            ],
+            "speed": 5
+        }
     ]
 }
