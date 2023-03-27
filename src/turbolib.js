@@ -23,6 +23,7 @@ async function getImages(){
 
 let fetch_data = await getImages();
 fetch_data.images.forEach((item) => resources.addImage(new ImageObject(item.src, item.name)));
+fetch_data.animations.forEach((item) => resources.createAnimation(item.name, item.images, item.speed));
 
 setInterval(() => {
     run();
