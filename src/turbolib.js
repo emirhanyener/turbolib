@@ -3,8 +3,13 @@ import { config, GameObject, Position, Size, Physics, Resources, ImageObject } f
 let canvas = document.getElementById(config.canvas.id);
 let ctx = canvas.getContext("2d");
 
-canvas.width = config.canvas.width;
-canvas.height = config.canvas.height;
+canvas.width = config.canvas.width * config.canvas.resolution_multipler;
+canvas.height = config.canvas.height * config.canvas.resolution_multipler;
+
+ctx.scale(config.canvas.resolution_multipler, config.canvas.resolution_multipler);
+
+canvas.style.width = (config.canvas.width) + "px";
+canvas.style.height = (config.canvas.height) + "px";
 
 export let resources = new Resources();
 export let physics = [];
@@ -16,8 +21,8 @@ async function getImages(){
     return images;
 }
 
-let test = await getImages();
-test.images.forEach((item) => resources.addImage(new ImageObject(item.src, item.name)));
+let fetch_data = await getImages();
+fetch_data.images.forEach((item) => resources.addImage(new ImageObject(item.src, item.name)));
 
 setInterval(() => {
     run();
