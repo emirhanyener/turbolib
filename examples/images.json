@@ -1,0 +1,36 @@
+{
+    "images": [
+        {
+            "src": "images/rocket/rocket1.png",
+            "name": "idle1"
+        },
+        {
+            "src": "images/rocket/rocket2.png",
+            "name": "idle2"
+        },
+        {
+            "src": "images/rocket/rocket3.png",
+            "name": "idle3"
+        },
+        {
+            "src": "images/rocket/rocket4.png",
+            "name": "idle4"
+        },
+        {
+            "src": "images/rocket/rocket5.png",
+            "name": "idle5"
+        },
+        {
+            "src": "images/rocket/rocket6.png",
+            "name": "idle6"
+        },
+        {
+            "src": "images/rocket/rocket7.png",
+            "name": "idle7"
+        },
+        {
+            "src": "images/rocket/rocket8.png",
+            "name": "idle8"
+        }
+    ]
+}
