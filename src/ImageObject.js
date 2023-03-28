@@ -10,8 +10,26 @@ export class ImageObject{
         this.index = 0;
         this.time = 0;
         this.animationSpeed = 10;
+        this.flipHorizontal = false;
+        this.flipVertical = false;
     }
 
+    getFlipHorizontal(){
+        if(this.flipHorizontal)
+            return -1;
+        return 1;
+    }
+    getFlipVertical(){
+        if(this.flipVertical)
+            return -1;
+        return 1;
+    }
+    changeFlipHorizontal(){
+        this.flipHorizontal = !this.flipHorizontal;
+    }
+    changeFlipVertical(){
+        this.flipVertical = !this.flipVertical;
+    }
     setAnimationSpeed(newSpeed){
         this.animationSpeed = newSpeed;
     }
