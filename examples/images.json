@@ -2,51 +2,101 @@
     "images": [
         {
             "src": "images/rocket/rocket1.png",
-            "name": "idle1"
+            "name": "Idle1"
         },
         {
             "src": "images/rocket/rocket2.png",
-            "name": "idle2"
+            "name": "Idle2"
         },
         {
             "src": "images/rocket/rocket3.png",
-            "name": "idle3"
+            "name": "Idle3"
         },
         {
             "src": "images/rocket/rocket4.png",
-            "name": "idle4"
+            "name": "Idle4"
         },
         {
             "src": "images/rocket/rocket5.png",
-            "name": "idle5"
+            "name": "Idle5"
         },
         {
             "src": "images/rocket/rocket6.png",
-            "name": "idle6"
+            "name": "Idle6"
         },
         {
             "src": "images/rocket/rocket7.png",
-            "name": "idle7"
+            "name": "Idle7"
         },
         {
             "src": "images/rocket/rocket8.png",
-            "name": "idle8"
+            "name": "Idle8"
+        },
+        {
+            "src": "images/rocket/rocketRight1.png",
+            "name": "Move1"
+        },
+        {
+            "src": "images/rocket/rocketRight2.png",
+            "name": "Move2"
+        },
+        {
+            "src": "images/rocket/rocketRight3.png",
+            "name": "Move3"
+        },
+        {
+            "src": "images/rocket/rocketRight4.png",
+            "name": "Move4"
+        },
+        {
+            "src": "images/rocket/rocketRight5.png",
+            "name": "Move5"
+        },
+        {
+            "src": "images/rocket/rocketRight6.png",
+            "name": "Move6"
         }
     ],
     "animations":[
         {
-            "name": "anim1",
+            "name": "RocketIdleAnimation",
             "images":[
-                "idle1",
-                "idle2",
-                "idle3",
-                "idle4",
-                "idle5",
-                "idle6",
-                "idle7",
-                "idle8"
+                "Idle1",
+                "Idle2",
+                "Idle3",
+                "Idle4",
+                "Idle5",
+                "Idle6",
+                "Idle7",
+                "Idle8"
             ],
             "speed": 5
+        },
+        {
+            "name": "RocketRightAnimation",
+            "images":[
+                "Move1",
+                "Move2",
+                "Move3",
+                "Move4",
+                "Move5",
+                "Move6"
+            ],
+            "speed": 5,
+            "flipHorizontal": false
+        },
+        {
+            "name": "RocketLeftAnimation",
+            "images":[
+                "Move1",
+                "Move2",
+                "Move3",
+                "Move4",
+                "Move5",
+                "Move6"
+            ],
+            "speed": 5,
+            "flipHorizontal": true
         }
     ]
 }
