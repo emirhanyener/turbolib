@@ -15,26 +15,26 @@ GameObject.find("Block2").setColor("#DA1");
 
 GameObject.find("Player").addPhysics();
 
-GameObject.find("Player").setImage("anim1");
+GameObject.find("Player").setImage("RocketIdleAnimation");
 
 document.addEventListener("keydown", keyfn);
 document.addEventListener("keyup", release);
 function keyfn(event){
     if(event.code == "KeyA"){
         GameObject.find("Player").getPhysics().velocity.x = -1;
+        GameObject.find("Player").setImage("RocketLeftAnimation");
     }
     if(event.code == "KeyD"){
         GameObject.find("Player").getPhysics().velocity.x = 1;
+        GameObject.find("Player").setImage("RocketRightAnimation");
     }
     if(event.code == "KeyW"){
         GameObject.find("Player").getPhysics().velocity.y = -5;
     }
 }
 function release(event){
-    if(event.code == "KeyA"){
+    if(event.code == "KeyA" || event.code == "KeyD"){
         GameObject.find("Player").getPhysics().velocity.x = 0;
-    }
-    if(event.code == "KeyD"){
-        GameObject.find("Player").getPhysics().velocity.x = 0;
+        GameObject.find("Player").setImage("RocketIdleAnimation");
     }
 }
