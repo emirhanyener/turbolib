@@ -13,7 +13,9 @@ Images.json is image data in json format. In this file, pictures and animations 
         },
         {
             "src": "image_source2",
-            "name": "image_name2"
+            "name": "image_name2",
+            "flipHorizontal": true | false,
+            "flipVertical": true | false
         }
     ]
 }
@@ -22,6 +24,10 @@ Images.json is image data in json format. In this file, pictures and animations 
 `src`: Image source
 
 `name`: Image name
+
+`flipHorizontal(optional)`: Image horizontal flip state
+
+`flipVertical(optional)`: Image vertical flip state
 
 ### Animations
 
@@ -37,7 +43,9 @@ Images.json is image data in json format. In this file, pictures and animations 
                 "image_name1",
                 "image_name2"
             ],
-            "speed": animation_speed(int)
+            "speed": animation_speed(int),
+            "flipHorizontal": true | false,
+            "flipVertical": true | false
         }
     ]
 }
@@ -48,3 +56,7 @@ Images.json is image data in json format. In this file, pictures and animations 
 `images`: Animation images
 
 `speed`: Animation frame speed
+
+`flipHorizontal(optional)`: Image horizontal flip state
+
+`flipVertical(optional)`: Image vertical flip state
