@@ -55,6 +55,10 @@
         {
             "src": "images/rocket/rocketRight6.png",
             "name": "Move6"
+        },
+        {
+            "src": "images/background.png",
+            "name": "Background"
         }
     ],
     "animations":[
