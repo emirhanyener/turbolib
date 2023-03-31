@@ -38,7 +38,10 @@ setInterval(() => {
 function run(){
     time++;
     ctx.fillStyle = config.canvas.background_color;
-    ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);
+    if(config.canvas.background == "")
+        ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);
+    else
+        ctx.drawImage(resources.findImage(config.canvas.background).image[0], 0, 0, config.canvas.width, config.canvas.height);
     resources.getGameObjects().forEach(element => {
         ctx.fillStyle = "#000000";
         if(element.image){
