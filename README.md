@@ -6,9 +6,9 @@
 - [X] GameObject physics
 - [X] Easy image manage
 - [X] Animation
+- [X] Camera
 - [ ] Object function
 - [ ] Global function
-- [ ] Camera
 - [ ] Trigger event
 - [ ] Collision
 - [ ] Alerts
