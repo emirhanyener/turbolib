@@ -72,3 +72,19 @@ This method removes the selected GameObject from the Resources.
 GameObject.find(name).destroy();
 ```
 `name`: GameObject name
+
+### Check Trigger
+This method returns all objects as an array if there is an object within the specified parameters.
+
+```javascript
+GameObject.find(name).checkTrigger(offsetX, offsetY, x, y);
+```
+`name`: GameObject name
+
+`offsetX`: Position x axis offset
+
+`offsetY`: Position y axis offset
+
+`x`: X axis length
+
+`y`: Y axis length
