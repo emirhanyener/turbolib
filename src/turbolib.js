@@ -46,12 +46,13 @@ function run(){
         ctx.fillStyle = "#000000";
         if(element.image){
             ctx.scale(1 * element.image.getFlipHorizontal(), 1 * element.image.getFlipVertical());
-            ctx.drawImage(element.image.getImage(), element.image.getFlipHorizontal() * (element.position.x - element.size.x / 2 + (element.image.flipHorizontal ? element.size.x : 0)), element.image.getFlipVertical() * (element.position.y - element.size.y / 2 + (element.image.flipVertical ? element.size.y : 0)), element.size.x, element.size.y);
+            ctx.drawImage(element.image.getImage(), element.image.getFlipHorizontal() * (element.position.x - element.size.x / 2 + (element.image.flipHorizontal ? element.size.x - (2 * resources.getMainCamera().getPosition().x) : 0)) - resources.getMainCamera().getPosition().x, element.image.getFlipVertical() * (element.position.y - element.size.y / 2 + (element.image.flipVertical ? element.size.y - (2 * resources.getMainCamera().getPosition().y) : 0)) - resources.getMainCamera().getPosition().y, element.size.x, element.size.y);
             ctx.scale(1 * element.image.getFlipHorizontal(), 1 * element.image.getFlipVertical());
         }else{
-            if(element.color)
+            if(element.color){
                 ctx.fillStyle = element.color;
-                ctx.fillRect(element.position.x - element.size.x / 2, element.position.y - element.size.y / 2, element.size.x, element.size.y);
+            }
+            ctx.fillRect(element.position.x - element.size.x / 2 - resources.getMainCamera().getPosition().x, element.position.y - element.size.y / 2 - resources.getMainCamera().getPosition().y, element.size.x, element.size.y);
         }
     });
     physics.forEach(element => {
