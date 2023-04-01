@@ -2,12 +2,17 @@ import { resources } from "../../src/turbolib.js";
 import { GameObject } from "../../src/GameObject.js";
 import { Position } from "../../src/Position.js";
 import { Size } from "../../src/Size.js";
+import { Camera } from "../../src/Camera.js";
+import { FollowerCamera } from "../../src/FollowerCamera.js";
+
 
 GameObject.create("Player", 50, 200, 75, 75);
 GameObject.create("Ground", 200, 300, 400, 60);
 GameObject.create("Block1", 300, 200, 100, 20);
 GameObject.create("Block2", 200, 100, 100, 20);
 
+resources.setMainCamera(new FollowerCamera(GameObject.find("Player")));
+//resources.setMainCamera(new Camera(100, 0));
 
 GameObject.find("Ground").setColor("#11AA11");
 GameObject.find("Block1").setColor("#FB2");
