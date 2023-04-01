@@ -1,3 +1,4 @@
+import { Camera } from "./Camera.js";
 import { GameObject } from "./GameObject.js";
 import { Physics } from "./Physics.js";
 import { ImageObject } from "./index.js";
@@ -6,6 +7,13 @@ export class Resources{
     constructor(){
         this.gameobjects = [];
         this.images = [];
+        this.camera = new Camera(0, 0);
+    }
+    getMainCamera(){
+        return this.camera;
+    }
+    setMainCamera(camera){
+        this.camera = camera;
     }
     getGameObjects(){
         return this.gameobjects;
