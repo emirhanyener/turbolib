@@ -18,12 +18,6 @@ export class GameObject{
     setColor(color){
         this.color = color;
     }
-    setSize(x, y){
-        this.size = new Size;
-    }
-    setPosition(x, y){
-        this.position = new Position(x, y);
-    }
     addPhysics(){
         if(physics.find((physics) => physics.gameObject.name == this.name)){
             console.error("Physics already added");
