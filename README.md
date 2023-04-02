@@ -12,6 +12,7 @@
 - [ ] Trigger event
 - [ ] Collision
 - [ ] Alerts
+- [ ] Particles
 
 ## Installation
 This project created with JavaScript. It doesn't need any requirements.
