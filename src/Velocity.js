@@ -1,16 +1,16 @@
-export class Velocity{
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
-    }
+export class Velocity {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 
-    updateVelocity(x, y){
-        this.x = x;
-        this.y = y;
-    }
+  updateVelocity(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 
-    add(x, y){
-        this.x += x;
-        this.y += y;
-    }
+  add(x, y) {
+    this.x += x;
+    this.y += y;
+  }
 }

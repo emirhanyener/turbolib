@@ -25,22 +25,22 @@ GameObject.find("Player").setImage("RocketIdleAnimation");
 
 document.addEventListener("keydown", keyfn);
 document.addEventListener("keyup", release);
-function keyfn(event){
-    if(event.code == "KeyA"){
-        GameObject.find("Player").getPhysics().velocity.x = -speed;
-        GameObject.find("Player").setImage("RocketLeftAnimation");
-    }
-    if(event.code == "KeyD"){
-        GameObject.find("Player").getPhysics().velocity.x = speed;
-        GameObject.find("Player").setImage("RocketRightAnimation");
-    }
-    if(event.code == "KeyW"){
-        GameObject.find("Player").getPhysics().velocity.y = -5;
-    }
+function keyfn(event) {
+  if (event.code == "KeyA") {
+    GameObject.find("Player").getPhysics().velocity.x = -speed;
+    GameObject.find("Player").setImage("RocketLeftAnimation");
+  }
+  if (event.code == "KeyD") {
+    GameObject.find("Player").getPhysics().velocity.x = speed;
+    GameObject.find("Player").setImage("RocketRightAnimation");
+  }
+  if (event.code == "KeyW") {
+    GameObject.find("Player").getPhysics().velocity.y = -5;
+  }
 }
-function release(event){
-    if(event.code == "KeyA" || event.code == "KeyD"){
-        GameObject.find("Player").getPhysics().velocity.x = 0;
-        GameObject.find("Player").setImage("RocketIdleAnimation");
-    }
+function release(event) {
+  if (event.code == "KeyA" || event.code == "KeyD") {
+    GameObject.find("Player").getPhysics().velocity.x = 0;
+    GameObject.find("Player").setImage("RocketIdleAnimation");
+  }
 }
