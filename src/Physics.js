@@ -8,6 +8,7 @@ export class Physics{
         this.velocity = new Velocity(0, 0);
         this.mass = 1;
         this.isGrounded = false;
+        this.bounceRate = 0;
     }
 
     calculate(){
@@ -22,7 +23,7 @@ export class Physics{
         } 
         if(downArray.length > 0){
             this.isGrounded = true;
-            this.velocity.y = 0;
+            this.velocity.y = -this.velocity.y * this.bounceRate;
             this.gameObject.position.y = downArray[0].position.y - downArray[0].size.y / 2 - this.gameObject.size.y / 2;
         }
         
@@ -33,7 +34,7 @@ export class Physics{
             if(upArray.length > 0){
                 this.gameObject.position.y = upArray[0].position.y + upArray[0].size.y / 2 + this.gameObject.size.y / 2 + 1;
             }
-            this.velocity.y = 0;
+            this.velocity.y = -this.velocity.y * this.bounceRate;
         }
     }
     
