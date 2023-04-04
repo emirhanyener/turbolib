@@ -1,7 +1,6 @@
 import { resources } from "../../src/turbolib.js";
 import { GameObject } from "../../src/GameObject.js";
-import { Position } from "../../src/Position.js";
-import { Size } from "../../src/Size.js";
+import { Vector } from "../../src/Vector.js";
 import { Camera } from "../../src/Camera.js";
 import { FollowerCamera } from "../../src/FollowerCamera.js";
 
@@ -11,6 +10,7 @@ GameObject.create("Player", 50, 200, 75, 75);
 GameObject.create("Ground", 200, 300, 400, 60);
 GameObject.create("Block1", 300, 200, 100, 20);
 GameObject.create("Block2", 200, 100, 100, 20);
+GameObject.create("Block3", 50, 250, 100, 100);
 
 resources.setMainCamera(new FollowerCamera(GameObject.find("Player")));
 resources.getMainCamera().setDelay(0.005);

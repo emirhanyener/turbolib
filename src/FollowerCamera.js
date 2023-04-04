@@ -1,5 +1,5 @@
 import { Camera } from "./Camera.js";
-import { Position } from "./Position.js";
+import { Vector } from "./Vector.js";
 import { config } from "./Config.js";
 
 export class FollowerCamera extends Camera {

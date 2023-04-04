@@ -1,8 +1,7 @@
 import {
   config,
   GameObject,
-  Position,
-  Size,
+  Vector,
   Physics,
   Resources,
   ImageObject,

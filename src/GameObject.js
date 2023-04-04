@@ -1,7 +1,6 @@
 import { physics, resources } from "./turbolib.js";
 import { Physics } from "./Physics.js";
-import { Position } from "./Position.js";
-import { Size } from "./Size.js";
+import { Vector } from "./Vector.js";
 
 export class GameObject {
   constructor(name, position, size) {
@@ -46,8 +45,8 @@ export class GameObject {
   static create(name, posX, posY, sizeX, sizeY) {
     let temp = new GameObject(
       name,
-      new Position(posX, posY),
-      new Size(sizeX, sizeY)
+      new Vector(posX, posY),
+      new Vector(sizeX, sizeY)
     );
     resources.addGameObject(temp);
   }
@@ -70,20 +69,20 @@ export class GameObject {
           return;
         }
         if (
-          this.position.getX() + offsetX + (x / step) * i >
-          item.position.getX() - item.size.getWidth() / 2
+          this.position.x + offsetX + (x / step) * i >
+          item.position.x - item.size.x / 2
         ) {
           if (
-            this.position.getX() + offsetX + (x / step) * i <
-            item.position.getX() + item.size.getWidth() / 2
+            this.position.x + offsetX + (x / step) * i <
+            item.position.x + item.size.x / 2
           ) {
             if (
-              this.position.getY() + offsetY + (y / step) * i >
-              item.position.getY() - item.size.getHeight() / 2
+              this.position.y + offsetY + (y / step) * i >
+              item.position.y - item.size.y / 2
             ) {
               if (
-                this.position.getY() + offsetY + (y / step) * i <
-                item.position.getY() + item.size.getHeight() / 2
+                this.position.y + offsetY + (y / step) * i <
+                item.position.y + item.size.y / 2
               ) {
                 detectedObjects.push(item);
               }

@@ -1,11 +1,10 @@
 import { config } from "./Config.js";
-import { Size } from "./Size.js";
-import { Velocity } from "./Velocity.js";
+import { Vector } from "./Vector.js";
 
 export class Physics {
   constructor(gameObject) {
     this.gameObject = gameObject;
-    this.velocity = new Velocity(0, 0);
+    this.velocity = new Vector(0, 0);
     this.mass = 1;
     this.isGrounded = false;
     this.bounceRate = 0;
