@@ -6,6 +6,7 @@ import { ImageObject } from "./index.js";
 export class Resources {
   constructor() {
     this.gameobjects = [];
+    this.drawobjects = [];
     this.images = [];
     this.camera = new Camera(0, 0);
   }
@@ -31,6 +32,22 @@ export class Resources {
     console.error("GameObject not found");
   }
 
+  getDrawObjects() {
+    return this.drawobjects;
+  }
+  addDrawObject(drawObject) {
+    this.drawobjects.push(drawObject);
+  }
+  findDrawObject(name) {
+    let temp = this.drawobjects.find((drawObject) => drawObject.name == name);
+
+    if (temp) {
+      return temp;
+    }
+
+    console.error("DrawObject not found");
+  }
+  
   addImage(image) {
     this.images.push(image);
   }
