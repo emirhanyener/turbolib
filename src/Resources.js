@@ -6,7 +6,7 @@ import { ImageObject } from "./index.js";
 export class Resources {
   constructor() {
     this.gameobjects = [];
-    this.drawobjects = [];
+    this.ui = [];
     this.images = [];
     this.camera = new Camera(0, 0);
   }
@@ -20,6 +20,10 @@ export class Resources {
     return this.gameobjects;
   }
   addGameObject(gameObject) {
+    if(findGameObject(gameObject.name)){
+      console.error("GameObject already exists");
+      return;
+    }
     this.gameobjects.push(gameObject);
   }
   findGameObject(name) {
@@ -32,23 +36,31 @@ export class Resources {
     console.error("GameObject not found");
   }
 
-  getDrawObjects() {
-    return this.drawobjects;
+  getUI() {
+    return this.ui;
   }
-  addDrawObject(drawObject) {
-    this.drawobjects.push(drawObject);
+  addUI(item) {
+    if(this.findUI(item.name)){
+      console.error("UI already exists");
+      return;
+    }
+    this.ui.push(item);
   }
-  findDrawObject(name) {
-    let temp = this.drawobjects.find((drawObject) => drawObject.name == name);
+  findUI(name) {
+    let temp = this.ui.find((item) => item.name == name);
 
     if (temp) {
       return temp;
     }
 
-    console.error("DrawObject not found");
+    console.error("UI not found");
   }
   
   addImage(image) {
+    if(this.findImage(image.name)){
+      console.error("Image already exists");
+      return;
+    }
     this.images.push(image);
   }
   findImage(name) {
@@ -62,6 +74,10 @@ export class Resources {
   }
 
   createAnimation(name, images, animationSpeed) {
+    if(this.findImage(name)){
+      console.error("Image already exists");
+      return;
+    }
     this.addImage(
       new ImageObject(this.findImage(images[0]).image[0].src, name)
     );
