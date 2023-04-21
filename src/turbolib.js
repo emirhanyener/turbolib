@@ -35,12 +35,14 @@ let fetch_data = await getImages();
 fetch_data.images.forEach((item) =>
   resources.addImage(new ImageObject(item.src, item.name))
 );
-fetch_data.animations.forEach((item) => {
-  resources.createAnimation(item.name, item.images, item.speed);
-  if (item.flipVertical) resources.findImage(item.name).changeFlipVertical();
-  if (item.flipHorizontal)
-    resources.findImage(item.name).changeFlipHorizontal();
-});
+if(fetch_data.animations){
+  fetch_data.animations.forEach((item) => {
+    resources.createAnimation(item.name, item.images, item.speed);
+    if (item.flipVertical) resources.findImage(item.name).changeFlipVertical();
+    if (item.flipHorizontal)
+      resources.findImage(item.name).changeFlipHorizontal();
+  });
+}
 
 setInterval(() => {
   run();
