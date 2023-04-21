@@ -20,11 +20,16 @@ export class Resources {
     return this.gameobjects;
   }
   addGameObject(gameObject) {
-    if(findGameObject(gameObject.name)){
+    if(this.isGameObjectExists(gameObject.name)){
       console.error("GameObject already exists");
       return;
     }
     this.gameobjects.push(gameObject);
+  }
+  isGameObjectExists(name){
+    if(this.gameobjects.find((gameObject) => gameObject.name == name))
+      return true;
+    return false;
   }
   findGameObject(name) {
     let temp = this.gameobjects.find((gameObject) => gameObject.name == name);
@@ -57,7 +62,7 @@ export class Resources {
   }
   
   addImage(image) {
-    if(this.findImage(image.name)){
+    if(this.isImageExists(image.name)){
       console.error("Image already exists");
       return;
     }
@@ -72,9 +77,14 @@ export class Resources {
 
     console.error("Image not found");
   }
+  isImageExists(name){
+    if(this.images.find((image) => image.name == name))
+      return true;
+    return false;
+  }
 
   createAnimation(name, images, animationSpeed) {
-    if(this.findImage(name)){
+    if(this.isImageExists(name)){
       console.error("Image already exists");
       return;
     }
