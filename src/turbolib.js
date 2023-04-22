@@ -107,6 +107,9 @@ function run() {
       );
     }
   });
+  resources.getUI().forEach((element) => {
+    element.drawUI(ctx);
+  });
   physics.forEach((element) => {
     element.calculate();
   });
