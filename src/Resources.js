@@ -45,11 +45,16 @@ export class Resources {
     return this.ui;
   }
   addUI(item) {
-    if(this.findUI(item.name)){
+    if(this.isUIExists(item.name)){
       console.error("UI already exists");
       return;
     }
     this.ui.push(item);
+  }
+  isUIExists(name){
+    if(this.images.find((image) => image.name == name))
+      return true;
+    return false;
   }
   findUI(name) {
     let temp = this.ui.find((item) => item.name == name);
