@@ -21,7 +21,9 @@ export class GameObject {
     if (physics.find((physics) => physics.gameObject.name == this.name)) {
       console.error("Physics already added");
     } else {
-      physics.push(new Physics(this));
+      let temp = new Physics(this);
+      physics.push(temp);
+      return temp;
     }
   }
   getPhysics() {
