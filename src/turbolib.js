@@ -48,6 +48,14 @@ setInterval(() => {
   run();
 }, 10);
 
+
+canvas.addEventListener("mousemove", mousePositionUpdate);
+
+function mousePositionUpdate(e){
+  resources.mouse.x = e.clientX;
+  resources.mouse.y = e.clientY;
+}
+
 function run() {
   time++;
   ctx.fillStyle = config.canvas.background_color;
