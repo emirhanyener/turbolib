@@ -1,7 +1,7 @@
 import { Camera } from "./Camera.js";
 import { GameObject } from "./GameObject.js";
 import { Physics } from "./Physics.js";
-import { ImageObject } from "./index.js";
+import { ImageObject, Vector } from "./index.js";
 
 export class Resources {
   constructor() {
@@ -9,6 +9,8 @@ export class Resources {
     this.ui = [];
     this.images = [];
     this.camera = new Camera(0, 0);
+    this.mouse = new Vector(0, 0);
+    this._mouse = new Vector(0, 0);
   }
   getMainCamera() {
     return this.camera;
@@ -16,6 +18,15 @@ export class Resources {
   setMainCamera(camera) {
     this.camera = camera;
   }
+
+
+  getMousePosition(){
+    this._mouse.x = this.mouse.x + this.camera.position.x;
+    this._mouse.y = this.mouse.y + this.camera.position.y;
+    return this._mouse;
+  }
+
+  
   getGameObjects() {
     return this.gameobjects;
   }
@@ -40,6 +51,7 @@ export class Resources {
 
     console.error("GameObject not found");
   }
+
 
   getUI() {
     return this.ui;
@@ -66,6 +78,7 @@ export class Resources {
     console.error("UI not found");
   }
   
+
   addImage(image) {
     if(this.isImageExists(image.name)){
       console.error("Image already exists");
@@ -87,7 +100,6 @@ export class Resources {
       return true;
     return false;
   }
-
   createAnimation(name, images, animationSpeed) {
     if(this.isImageExists(name)){
       console.error("Image already exists");
