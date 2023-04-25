@@ -15,10 +15,14 @@ export class Physics {
   }
 
   visible(){
-    resources.addUI(new UILine(UIType.Line, "downLine1", new Vector(0, 0)));
-    resources.addUI(new UILine(UIType.Line, "downLine2", new Vector(0, 0)));
-    resources.addUI(new UILine(UIType.Line, "upLine1", new Vector(0, 0)));
-    resources.addUI(new UILine(UIType.Line, "upLine2", new Vector(0, 0)));
+    resources.addUI(new UILine("downLine1", new Vector(0, 0)));
+    resources.addUI(new UILine("downLine2", new Vector(0, 0)));
+    resources.addUI(new UILine("upLine1", new Vector(0, 0)));
+    resources.addUI(new UILine("upLine2", new Vector(0, 0)));
+    resources.findUI("downLine1").gameWorld = true;
+    resources.findUI("downLine2").gameWorld = true;
+    resources.findUI("upLine1").gameWorld = true;
+    resources.findUI("upLine2").gameWorld = true;
     this.isVisible = !this.isVisible;
   }
 
