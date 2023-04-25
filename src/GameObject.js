@@ -9,6 +9,7 @@ export class GameObject {
     this.size = size;
     this.image;
     this.color;
+    this.isInteractive = true;
   }
 
   setImage(name) {
@@ -67,7 +68,7 @@ export class GameObject {
 
     for (let i = 0; i < step + 2; i++) {
       resources.getGameObjects().forEach((item) => {
-        if (item == this) {
+        if (item == this || !item.isInteractive) {
           return;
         }
         if (
