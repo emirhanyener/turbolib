@@ -1,6 +1,11 @@
 export { config } from "./Config.js";
+export { UILine } from "./UI/UILine.js";
+export { UIText } from "./UI/UIText.js";
+export { Camera } from "./Camera.js";
+export { FollowerCamera } from "./FollowerCamera.js";
 export { GameObject } from "./GameObject.js";
-export { Vector } from "./Vector.js";
 export { Physics } from "./Physics.js";
 export { Resources } from "./Resources.js";
+export { Vector } from "./Vector.js";
 export { ImageObject } from "./ImageObject.js";
+export { resources } from "./turbolib.js";
