@@ -9,7 +9,11 @@ export class Resources {
     this.ui = [];
     this.images = [];
     this.camera = new Camera(0, 0);
-    this.mouse = new Vector(0, 0);
+    this.mouse = {
+      "worldPosition": new Vector(0, 0),
+      "canvasPosition": new Vector(0, 0),
+      "isPointerDown": false,
+    };
     this._mouse = new Vector(0, 0);
   }
   getMainCamera() {
@@ -19,11 +23,9 @@ export class Resources {
     this.camera = camera;
   }
 
-
   getMousePosition(){
-    this._mouse.x = this.mouse.x + this.camera.position.x;
-    this._mouse.y = this.mouse.y + this.camera.position.y;
-    return this._mouse;
+    this.mouse.worldPosition.update(this.mouse.x + this.camera.position.x, this.mouse.y + this.camera.position.y);
+    return this.mouse.worldPosition;
   }
 
   
