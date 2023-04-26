@@ -50,10 +50,17 @@ setInterval(() => {
 
 
 canvas.addEventListener("mousemove", mousePositionUpdate);
+canvas.addEventListener("mousedown", mouseClickingUpdate);
+canvas.addEventListener("mouseup", mouseClickingUpdate);
 
 function mousePositionUpdate(e){
-  resources.mouse.x = e.clientX;
-  resources.mouse.y = e.clientY;
+  resources.mouse.canvasPosition.update(e.clientX, e.clientY);
+}
+function mouseClickingUpdate(e){
+  if(e.buttons == 0)
+    resources.mouse.isPointerDown = false;
+  else
+    resources.mouse.isPointerDown = true;
 }
 
 function run() {
