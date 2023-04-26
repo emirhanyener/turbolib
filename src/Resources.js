@@ -24,7 +24,7 @@ export class Resources {
   }
 
   getMousePosition(){
-    this.mouse.worldPosition.update(this.mouse.x + this.camera.position.x, this.mouse.y + this.camera.position.y);
+    this.mouse.worldPosition.update(this.mouse.canvasPosition.x + this.camera.position.x, this.mouse.canvasPosition.y + this.camera.position.y);
     return this.mouse.worldPosition;
   }
 
