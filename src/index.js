@@ -9,4 +9,4 @@ export { Physics } from "./Physics.js";
 export { Resources } from "./Resources.js";
 export { Vector } from "./Vector.js";
 export { ImageObject } from "./ImageObject.js";
-export { resources } from "./turbolib.js";
+export { resources, updateCanvasSize } from "./turbolib.js";
