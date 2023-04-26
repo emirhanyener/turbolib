@@ -7,11 +7,12 @@ export class UIText extends UI{
         super(name, position);
         this.text = text;
         this.size = size;
+        this.fontFamily = "Arial";
     }
 
     drawUI(context){
-        context.fillStyle = "#000";
-        context.font = this.size + "px Arial";
+        super.drawUI(context);
+        context.font = this.size + "px " + this.fontFamily;
 
         context.fillText(this.text, this.position.x - (this.gameWorld ? resources.getMainCamera().getPosition().x : 0), this.position.y - (this.gameWorld ? resources.getMainCamera().getPosition().y : 0));
     }

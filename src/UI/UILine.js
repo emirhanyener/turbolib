@@ -14,7 +14,7 @@ export class UILine extends UI{
     }
 
     drawUI(context){
-        context.strokeStyle = "#FF0000";
+        super.drawUI(context);
         context.beginPath();
         if(this.gameWorld){
             context.moveTo(this.position.x - resources.getMainCamera().getPosition().x, this.position.y - resources.getMainCamera().getPosition().y);
