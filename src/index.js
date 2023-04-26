@@ -1,6 +1,7 @@
 export { config } from "./Config.js";
 export { UILine } from "./UI/UILine.js";
 export { UIText } from "./UI/UIText.js";
+export { UIBox } from "./UI/UIText.js";
 export { Camera } from "./Camera.js";
 export { FollowerCamera } from "./FollowerCamera.js";
 export { GameObject } from "./GameObject.js";
