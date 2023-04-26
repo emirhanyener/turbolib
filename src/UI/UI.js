@@ -6,6 +6,7 @@ export class UI {
         this.position = position;
         this.color = "#000000";
         this.gameWorld = false;
+        this.active = true;
     }
 
     drawUI(context){

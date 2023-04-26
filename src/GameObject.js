@@ -10,6 +10,7 @@ export class GameObject {
     this.image;
     this.color;
     this.isInteractive = true;
+    this.active = true;
   }
 
   setImage(name) {
