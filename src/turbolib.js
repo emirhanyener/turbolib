@@ -10,8 +10,18 @@ import {
 let canvas = document.getElementById(config.canvas.id);
 let ctx = canvas.getContext("2d");
 
-canvas.width = config.canvas.width * config.canvas.resolution_multipler;
-canvas.height = config.canvas.height * config.canvas.resolution_multipler;
+updateCanvasSize();
+
+export function updateCanvasSize(){
+  canvas.width = config.canvas.width * config.canvas.resolution_multipler;
+  canvas.height = config.canvas.height * config.canvas.resolution_multipler;
+  canvas.style.width = config.canvas.width * config.canvas.resolution_multipler + "px";
+  canvas.style.height = config.canvas.height * config.canvas.resolution_multipler + "px";
+  ctx.scale(
+    config.canvas.resolution_multipler,
+    config.canvas.resolution_multipler
+  );
+}
 
 ctx.scale(
   config.canvas.resolution_multipler,
