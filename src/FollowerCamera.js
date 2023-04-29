@@ -12,8 +12,8 @@ export class FollowerCamera extends Camera {
     this.position.update(
       this.position.x +
         (this.gameobject.position.x - this.position.x) * this.delay -
-        (config.canvas.width / 2) * this.delay,
-      this.gameobject.position.y - config.canvas.height / 2
+        (config.canvas.width / 2) * this.delay + this.offset.x,
+      this.gameobject.position.y - config.canvas.height / 2 + this.offset.y
     );
     return this.position;
   }
