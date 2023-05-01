@@ -8,59 +8,63 @@ import { resources } from "turbolib/src/index.js";
 ```
 
 ## Methods
-### setMainCamera
+### Camera
+#### setMainCamera
 This method is used to add or update cameras in the game.
 ```javascript
 resources.setMainCamera(cameraObject);
 ```
 `cameraObject`: Camera or FollowerCamera object. 
 
-### getMainCamera
+#### getMainCamera
 This method is used to get the camera object.
 ```javascript
 resources.getMainCamera();
 ```
 
-### getMousePosition
+### Mouse
+#### getMousePosition
 This method is used to get mouse information.
 ```javascript
 resources.getMousePosition();
 ```
 
-### getGameObjects
+### GameObject
+#### getGameObjects
 This method is used to get all the gameobject items in the game.
 ```javascript
 resources.getGameObjects();
 ```
 
-### addGameObject
+#### addGameObject
 This method is used to add gameobjects manually.
 ```javascript
 resources.addGameObject(gameobject);
 ```
 `gameobject`: GameObject instance.
 
-### findGameObject
+#### findGameObject
 This method is used to find an gameobject in the game by name.
 ```javascript
 resources.findGameObject(name);
 ```
 `name`: GameObject name.
 
-### getUI
+### UI
+#### getUI
 This method is used to get all the user interface items in the game.
 ```javascript
 resources.getUI();
 ```
 
-### addUI
+#### addUI
 This method is used to add user interfaces manually.
 ```javascript
 resources.addUI(uiObject);
 ```
 `uiObject`: UIBox | UILine | UIText
 
-### findUI
+#### findUI
 This method is used to find an user interface in the game by name.
 ```javascript
 resources.findUI(name);
