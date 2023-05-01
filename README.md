@@ -1,6 +1,7 @@
 # turbolib
 ## About
-`turbolib` is a high-level javascript game library.
+`turbolib` is a high-level javascript game library. 
+[Docs](docs)
 
 ## Featues
 - [X] GameObject physics
