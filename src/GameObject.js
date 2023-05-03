@@ -1,4 +1,4 @@
-import { physics, resources } from "./turbolib.js";
+import { physics, resources, functions } from "./turbolib.js";
 import { Physics } from "./Physics.js";
 import { Vector } from "./Vector.js";
 
@@ -27,6 +27,10 @@ export class GameObject {
       physics.push(temp);
       return temp;
     }
+  }
+  addFunction(fn) {
+    fn.gameobject = this;
+    functions.push(fn);
   }
   getPhysics() {
     let temp = physics.find((physics) => physics.gameObject.name == this.name);
