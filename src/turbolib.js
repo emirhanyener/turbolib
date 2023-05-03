@@ -5,6 +5,7 @@ import {
   Physics,
   Resources,
   ImageObject,
+  ObjectFunction
 } from "./index.js";
 
 let canvas = document.getElementById(config.canvas.id);
@@ -33,6 +34,7 @@ canvas.style.height = config.canvas.height + "px";
 
 export let resources = new Resources();
 export let physics = [];
+export let functions = [];
 export let time = 0;
 
 async function getImages() {
@@ -141,5 +143,8 @@ function run() {
   });
   physics.forEach((element) => {
     element.calculate();
+  });
+  functions.forEach((element) => {
+    element.run();
   });
 }
