@@ -10,4 +10,5 @@ export { Resources } from "./Resources.js";
 export { Vector } from "./Vector.js";
 export { ImageObject } from "./ImageObject.js";
 export { ObjectFunction } from "./ObjectFunction.js";
+export { Function } from "./Function.js";
 export { resources, updateCanvasSize } from "./turbolib.js";
