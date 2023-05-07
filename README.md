@@ -9,7 +9,7 @@
 - [X] Animation
 - [X] Camera
 - [X] User Interface
-- [ ] Object function
+- [X] Object function
 - [ ] Global function
 - [ ] Keyboard Manager
 - [ ] Trigger event
