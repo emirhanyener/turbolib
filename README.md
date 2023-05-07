@@ -10,6 +10,7 @@
 - [X] Camera
 - [ ] Object function
 - [ ] Global function
+- [ ] Keyboard Manager
 - [ ] Trigger event
 - [ ] Scenes
 - [ ] Collision
