@@ -56,6 +56,10 @@ if(fetch_data.animations){
   });
 }
 
+export function addGlobalFunction(fn){
+  functions.push(fn);
+}
+
 setInterval(() => {
   run();
 }, 10);
