@@ -1,4 +1,3 @@
-import { Vector } from "../Vector.js";
 import { resources } from "../turbolib.js";
 import { UI } from "./UI.js";
 
