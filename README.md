@@ -10,7 +10,7 @@
 - [X] Camera
 - [X] User Interface
 - [X] Object function
-- [ ] Global function
+- [X] Global function
 - [ ] Keyboard Manager
 - [ ] Trigger event
 - [ ] Scenes
