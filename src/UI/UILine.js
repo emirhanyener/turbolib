@@ -1,6 +1,4 @@
-import { Vector } from "../Vector.js";
-import { resources } from "../turbolib.js";
-import { UI } from "./UI.js";
+import { UI, Vector, resources } from "../index.js";
 
 export class UILine extends UI{
     constructor(name, position){

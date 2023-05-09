@@ -1,6 +1,4 @@
-import { physics, resources, functions } from "./turbolib.js";
-import { Physics } from "./Physics.js";
-import { Vector } from "./Vector.js";
+import { physics, resources, functions, Physics, Vector } from "./index.js";
 
 export class GameObject {
   constructor(name, position, size) {

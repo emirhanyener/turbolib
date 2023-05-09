@@ -1,7 +1,4 @@
-import { Camera } from "./Camera.js";
-import { GameObject } from "./GameObject.js";
-import { Physics } from "./Physics.js";
-import { ImageObject, Vector } from "./index.js";
+import { Camera, GameObject, Physics, ImageObject, Vector } from "./index.js";
 
 export class Resources {
   constructor() {
@@ -53,7 +50,6 @@ export class Resources {
 
     console.error("GameObject not found");
   }
-
 
   getUI() {
     return this.ui;

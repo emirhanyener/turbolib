@@ -1,6 +1,4 @@
-import { Vector } from "../Vector.js";
-import { resources } from "../turbolib.js";
-import { UI } from "./UI.js";
+import { resources, UI } from "../index.js";
 
 export class UIText extends UI{
     constructor(name, text, position, size){

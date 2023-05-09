@@ -1,8 +1,4 @@
-import { config } from "./Config.js";
-import { UILine } from "./UI/UILine.js";
-import { UIType } from "./UI/UIType.js";
-import { Vector } from "./Vector.js";
-import { resources } from "./turbolib.js";
+import { config, UILine, Vector, resources } from "./index.js";
 
 export class Physics {
   constructor(gameObject) {
