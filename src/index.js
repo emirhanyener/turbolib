@@ -1,4 +1,5 @@
 export { config } from "./Config.js";
+export { UI } from "./UI/UI.js";
 export { UILine } from "./UI/UILine.js";
 export { UIText } from "./UI/UIText.js";
 export { UIBox } from "./UI/UIBox.js";
@@ -9,6 +10,6 @@ export { Physics } from "./Physics.js";
 export { Resources } from "./Resources.js";
 export { Vector } from "./Vector.js";
 export { ImageObject } from "./ImageObject.js";
-export { ObjectFunction } from "./ObjectFunction.js";
 export { Function } from "./Function.js";
-export { resources, updateCanvasSize, addGlobalFunction } from "./turbolib.js";
+export { ObjectFunction } from "./ObjectFunction.js";
+export { resources, updateCanvasSize, addGlobalFunction, functions, physics } from "./turbolib.js";
