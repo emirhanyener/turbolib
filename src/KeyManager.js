@@ -53,9 +53,9 @@ export class KeyManager {
     //Symbol Keys
     static KeyNumMultiply = false;
     static KeyNumAdd = false;
-    static KeyNumSlash = false;
-    static KeyNumMinus = false;
-    static KeyNumCompa = false;
+    static KeyNumDivide = false;
+    static KeyNumSubtract = false;
+    static KeyNumDecimal = false;
     static KeyNumPeriod = false;
 
     //Function Keys
@@ -82,7 +82,7 @@ export class KeyManager {
     static KeySpace = false;
     static KeyBackSpace = false;
     static KeyEscape = false;
-    static KeyPrintScreen = false;
+    static KeyScrollLock = false;
     static KeyPause = false;
     static KeyDelete = false;
     static KeyHome = false;
