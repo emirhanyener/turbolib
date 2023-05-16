@@ -11,7 +11,7 @@
 - [X] User Interface
 - [X] Object function
 - [X] Global function
-- [ ] Keyboard Manager
+- [X] Keyboard Manager
 - [ ] Trigger event
 - [ ] Scenes
 - [ ] Collision
