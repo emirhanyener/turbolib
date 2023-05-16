@@ -1,5 +1,7 @@
 import {
   config,
+  KeyController,
+  KeyManager,
   GameObject,
   Vector,
   Physics,
@@ -65,9 +67,11 @@ setInterval(() => {
 }, 10);
 
 
-canvas.addEventListener("mousemove", mousePositionUpdate);
-canvas.addEventListener("mousedown", mouseClickingUpdate);
-canvas.addEventListener("mouseup", mouseClickingUpdate);
+document.addEventListener("mousemove", mousePositionUpdate);
+document.addEventListener("mousedown", mouseClickingUpdate);
+document.addEventListener("mouseup", mouseClickingUpdate);
+document.addEventListener("keydown", KeyController.keyDownEvent);
+document.addEventListener("keyup", KeyController.keyUpEvent);
 
 function mousePositionUpdate(e){
   resources.mouse.canvasPosition.update(e.clientX, e.clientY);
