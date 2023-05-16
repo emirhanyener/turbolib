@@ -12,4 +12,6 @@ export { Vector } from "./Vector.js";
 export { ImageObject } from "./ImageObject.js";
 export { Function } from "./Function.js";
 export { ObjectFunction } from "./ObjectFunction.js";
+export { KeyManager } from "./KeyManager.js";
+export { KeyController } from "./KeyController.js";
 export { resources, updateCanvasSize, addGlobalFunction, functions, physics } from "./turbolib.js";
