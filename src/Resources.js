@@ -1,10 +1,11 @@
-import { Camera, GameObject, Physics, ImageObject, Vector } from "./index.js";
+import { Camera, GameObject, Physics, ImageObject, Vector, AlertManager, time } from "./index.js";
 
 export class Resources {
   constructor() {
     this.gameobjects = [];
     this.ui = [];
     this.images = [];
+    this.alertManager = new AlertManager();
     this.camera = new Camera(0, 0);
     this.mouse = {
       "worldPosition": new Vector(0, 0),
@@ -24,7 +25,6 @@ export class Resources {
     this.mouse.worldPosition.update(this.mouse.canvasPosition.x + this.camera.position.x, this.mouse.canvasPosition.y + this.camera.position.y);
     return this.mouse.worldPosition;
   }
-
   
   getGameObjects() {
     return this.gameobjects;
@@ -49,6 +49,10 @@ export class Resources {
     }
 
     console.error("GameObject not found");
+  }
+
+  addAlert(text){
+    this.alertManager.addAlert(text, time);
   }
 
   getUI() {
