@@ -1,5 +1,6 @@
 export class Alert{
-    constructor(){
-        this.text = "";
+    constructor(text, time){
+        this.text = text;
+        this.time = time;
     }
 }
