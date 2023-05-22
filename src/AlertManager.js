@@ -9,4 +9,8 @@ export class AlertManager {
     addAlert(text, time){
         this.alerts.push(new Alert(text, time));
     }
+
+    removeFirstAlert(){
+        this.alerts.shift();
+    }
 }
