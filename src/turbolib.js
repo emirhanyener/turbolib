@@ -155,4 +155,11 @@ function run() {
   functions.forEach((element) => {
     element.run();
   });
+  let alertIndex = 1;
+  ctx.font = "18px Arial";
+
+  resources.alertManager.alerts.forEach((element) => {
+    ctx.fillText(element.text, 0, 60 + alertIndex * 30);
+    alertIndex++;
+  });
 }
