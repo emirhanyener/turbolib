@@ -12,10 +12,10 @@
 - [X] Object function
 - [X] Global function
 - [X] Keyboard Manager
+- [X] Alerts
 - [ ] Trigger event
 - [ ] Scenes
 - [ ] Collision
-- [ ] Alerts
 - [ ] Particles
 
 ## Installation
