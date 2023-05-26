@@ -84,7 +84,7 @@ function mouseClickingUpdate(e){
 }
 
 function run() {
-  time++;
+  time+=10;
   ctx.fillStyle = config.canvas.background_color;
   if (config.canvas.background == "")
     ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);
@@ -156,10 +156,11 @@ function run() {
     element.run();
   });
   let alertIndex = 1;
-  ctx.font = "18px Arial";
+  ctx.font = "14px Arial";
 
   resources.alertManager.alerts.forEach((element) => {
-    ctx.fillText(element.text, 0, 60 + alertIndex * 30);
+    ctx.fillStyle = element.color;
+    ctx.fillText(element.text, 0, alertIndex * 18);
     alertIndex++;
   });
 }
