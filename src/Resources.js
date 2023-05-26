@@ -51,8 +51,8 @@ export class Resources {
     console.error("GameObject not found");
   }
 
-  addAlert(text){
-    this.alertManager.addAlert(text, time);
+  addAlert(text, color){
+    this.alertManager.addAlert(text, time, color);
   }
 
   getUI() {
