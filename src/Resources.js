@@ -1,4 +1,4 @@
-import { Camera, GameObject, Physics, ImageObject, Vector, AlertManager, time } from "./index.js";
+import { Camera, GameObject, Physics, ImageObject, Vector, AlertManager } from "./index.js";
 
 export class Resources {
   constructor() {
@@ -13,6 +13,7 @@ export class Resources {
       "isPointerDown": false,
     };
     this._mouse = new Vector(0, 0);
+    this.gameTime = 0;
   }
   getMainCamera() {
     return this.camera;
@@ -52,7 +53,7 @@ export class Resources {
   }
 
   addAlert(text, color){
-    this.alertManager.addAlert(text, time, color);
+    this.alertManager.addAlert(text, this.gameTime, color);
   }
 
   getUI() {
