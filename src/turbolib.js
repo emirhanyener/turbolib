@@ -156,7 +156,11 @@ function run() {
   });
   let alertIndex = 1;
   ctx.font = "14px Arial";
-
+  if(resources.alertManager.alerts.length > 0){
+    if(resources.alertManager.alerts[0].time + resources.alertManager.delayTime < resources.gameTime){
+      resources.alertManager.removeFirstAlert();
+    }
+  }
   resources.alertManager.alerts.forEach((element) => {
     ctx.fillStyle = element.color;
     ctx.fillText(element.text, 0, alertIndex * 18);
