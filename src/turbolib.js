@@ -37,7 +37,6 @@ canvas.style.height = config.canvas.height + "px";
 export let resources = new Resources();
 export let physics = [];
 export let functions = [];
-export let time = 0;
 
 async function getImages() {
   let res = await fetch(config.images_path + "./images.json");
@@ -84,7 +83,7 @@ function mouseClickingUpdate(e){
 }
 
 function run() {
-  time+=10;
+  resources.gameTime+=10;
   ctx.fillStyle = config.canvas.background_color;
   if (config.canvas.background == "")
     ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);
