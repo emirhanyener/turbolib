@@ -7,6 +7,13 @@ The resources variable is an object required for managing resources. With resour
 import { resources } from "turbolib/src/index.js";
 ```
 
+## Variables
+### Game Time
+It contains the time of how long the game has been running in milliseconds.
+```javascript
+resources.gameTime;
+```
+
 ## Methods
 ### Camera
 #### setMainCamera
