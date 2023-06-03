@@ -44,3 +44,28 @@ Changes the active state of the UI element. If it is not active it is not visibl
 resources.findUI(UIName).active = true / false;
 ```
 `UIName`: The name of the UI element that has been added.
+
+## UI Types
+### UIBox
+- UIBox(name, position, size);
+```javascript
+resources.addUI(new UIBox(UIName, new Vector(x, y), new Vector(width, height)));
+resources.findUI(UIName);
+```
+`UIName`: The name of the UI element that has been added.
+
+### UILine
+- UILine(name, position);
+```javascript
+resources.addUI(new UILine(UIName, new Vector(x, y)));
+resources.findUI(UIName).updateFromTo(fromX, fromY, toX, toY)
+```
+`UIName`: The name of the UI element that has been added.
+
+### UIText
+- IUText(name, text, position, size);
+```javascript
+resources.addUI(new UIText(UIName, text, new Vector(x, y), textSize));
+resources.findUI(UIName).text = "";
+```
+`UIName`: The name of the UI element that has been added.
