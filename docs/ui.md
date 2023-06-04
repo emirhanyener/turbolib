@@ -58,7 +58,7 @@ resources.findUI(UIName);
 - UILine(name, position);
 ```javascript
 resources.addUI(new UILine(UIName, new Vector(x, y)));
-resources.findUI(UIName).updateFromTo(fromX, fromY, toX, toY)
+resources.findUI(UIName).updateFromTo(fromX, fromY, toX, toY);
 ```
 `UIName`: The name of the UI element that has been added.
 
