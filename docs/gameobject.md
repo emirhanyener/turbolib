@@ -75,7 +75,7 @@ GameObject.find(name).destroy();
 
 ### Check Trigger
 This method returns all objects as an array if there is an object within the specified parameters.
-
+![CheckTriggerImage](/images/CheckTriggerImage.png)
 ```javascript
 GameObject.find(name).checkTrigger(offsetX, offsetY, x, y);
 ```
