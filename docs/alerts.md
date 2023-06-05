@@ -1,4 +1,4 @@
-# GameObject
+# Alerts
 ## About
 It is used to send instant notifications to users.
 
