@@ -1,4 +1,5 @@
 # turbolib
+![Logo](/images/Turbolib_Logo.png)
 [Docs](docs)
 ## About
 `turbolib` is a high-level javascript 2D game library. 
