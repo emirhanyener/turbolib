@@ -1,6 +1,10 @@
 # turbolib
-![Logo](/images/Turbolib_Logo.png)
-[Docs](docs)
+
+<p align="center">
+  <img src="/images/Turbolib_Logo.png" width = 100 height = 100><br>
+  <a href="docs/">Docs</a>
+</p>
+
 ## About
 `turbolib` is a high-level javascript 2D game library. 
 
