@@ -11,24 +11,36 @@ export class Physics {
   }
 
   visible(){
-    resources.addUI(new UILine("downLine1", new Vector(0, 0)));
-    resources.addUI(new UILine("downLine2", new Vector(0, 0)));
-    resources.addUI(new UILine("upLine1", new Vector(0, 0)));
-    resources.addUI(new UILine("upLine2", new Vector(0, 0)));
-    resources.findUI("downLine1").gameWorld = true;
-    resources.findUI("downLine2").gameWorld = true;
-    resources.findUI("upLine1").gameWorld = true;
-    resources.findUI("upLine2").gameWorld = true;
+    resources.addUI(new UILine("downLeftLine", new Vector(0, 0)));
+    resources.addUI(new UILine("downRightLine", new Vector(0, 0)));
+    resources.addUI(new UILine("upLeftLine", new Vector(0, 0)));
+    resources.addUI(new UILine("upRightLine", new Vector(0, 0)));
+
+    resources.addUI(new UILine("rightUpLine", new Vector(0, 0)));
+    resources.addUI(new UILine("rightDownLine", new Vector(0, 0)));
+    resources.addUI(new UILine("leftUpLine", new Vector(0, 0)));
+    resources.addUI(new UILine("leftDownLine", new Vector(0, 0)));
+    
+    resources.findUI("downLeftLine").gameWorld = true;
+    resources.findUI("downRightLine").gameWorld = true;
+    resources.findUI("upLeftLine").gameWorld = true;
+    resources.findUI("upRightLine").gameWorld = true;
+
+    resources.findUI("rightUpLine").gameWorld = true;
+    resources.findUI("rightDownLine").gameWorld = true;
+    resources.findUI("leftUpLine").gameWorld = true;
+    resources.findUI("leftDownLine").gameWorld = true;
+
     this.isVisible = !this.isVisible;
   }
 
   calculate() {
     this.gameObject.position.add(this.velocity.x, this.velocity.y);
     if(this.isVisible){
-      resources.findUI("downLine1").updateFromTo(this.gameObject.position.x - this.gameObject.size.x / 2, this.gameObject.position.y + this.gameObject.size.y / 2, this.gameObject.position.x + this.gameObject.size.x / 2, this.gameObject.position.y + this.gameObject.size.y / 2 + Math.round(this.velocity.y < 0 ? 0 : this.velocity.y));
-      resources.findUI("downLine2").updateFromTo(this.gameObject.position.x + this.gameObject.size.x / 2, this.gameObject.position.y + this.gameObject.size.y / 2, this.gameObject.position.x - this.gameObject.size.x / 2, this.gameObject.position.y + this.gameObject.size.y / 2 + Math.round(this.velocity.y < 0 ? 0 : this.velocity.y));
-      resources.findUI("upLine1").updateFromTo(this.gameObject.position.x - this.gameObject.size.x / 2, this.gameObject.position.y - this.gameObject.size.y / 2, this.gameObject.position.x + this.gameObject.size.x / 2, this.gameObject.position.y - this.gameObject.size.y / 2 + Math.round(this.velocity.y > 0 ? 0 : this.velocity.y));
-      resources.findUI("upLine2").updateFromTo(this.gameObject.position.x + this.gameObject.size.x / 2, this.gameObject.position.y - this.gameObject.size.y / 2, this.gameObject.position.x - this.gameObject.size.x / 2, this.gameObject.position.y - this.gameObject.size.y / 2 + Math.round(this.velocity.y > 0 ? 0 : this.velocity.y));
+      resources.findUI("downLeftLine").updateFromTo(this.gameObject.position.x - this.gameObject.size.x / 2, this.gameObject.position.y + this.gameObject.size.y / 2, this.gameObject.position.x + this.gameObject.size.x / 2, this.gameObject.position.y + this.gameObject.size.y / 2 + Math.round(this.velocity.y < 0 ? 0 : this.velocity.y));
+      resources.findUI("downRightLine").updateFromTo(this.gameObject.position.x + this.gameObject.size.x / 2, this.gameObject.position.y + this.gameObject.size.y / 2, this.gameObject.position.x - this.gameObject.size.x / 2, this.gameObject.position.y + this.gameObject.size.y / 2 + Math.round(this.velocity.y < 0 ? 0 : this.velocity.y));
+      resources.findUI("upLeftLine").updateFromTo(this.gameObject.position.x - this.gameObject.size.x / 2, this.gameObject.position.y - this.gameObject.size.y / 2, this.gameObject.position.x + this.gameObject.size.x / 2, this.gameObject.position.y - this.gameObject.size.y / 2 + Math.round(this.velocity.y > 0 ? 0 : this.velocity.y));
+      resources.findUI("upRightLine").updateFromTo(this.gameObject.position.x + this.gameObject.size.x / 2, this.gameObject.position.y - this.gameObject.size.y / 2, this.gameObject.position.x - this.gameObject.size.x / 2, this.gameObject.position.y - this.gameObject.size.y / 2 + Math.round(this.velocity.y > 0 ? 0 : this.velocity.y));  
     }
     //down
     let downArray = this.gameObject
