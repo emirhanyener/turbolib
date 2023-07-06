@@ -84,14 +84,14 @@ export class Physics {
       .checkTrigger(
         this.gameObject.size.x / 2,
         this.gameObject.size.y / 2 - 1,
-        Math.round(this.velocity.y < 0 ? 0 : this.velocity.y),
+        Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
         -this.gameObject.size.y + 2
       )
       .concat(
         this.gameObject.checkTrigger(
           this.gameObject.size.x / 2,
           -this.gameObject.size.y / 2 + 1,
-          Math.round(this.velocity.y < 0 ? 0 : this.velocity.y),
+          Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
           this.gameObject.size.y - 2
         )
       );
