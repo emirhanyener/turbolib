@@ -13,7 +13,7 @@ export class GameObject {
 
   /**
    * Set image from images.json name.
-   * @param {string} name 
+   * @param {string} name
    */
   setImage(name) {
     this.image = resources.findImage(name);
@@ -21,7 +21,7 @@ export class GameObject {
 
   /**
    * Set gameobject solid color.
-   * @param {string} color 
+   * @param {string} color
    */
   setColor(color) {
     this.color = color;
@@ -42,7 +42,7 @@ export class GameObject {
 
   /**
    * Add new function to gameobject.
-   * @param {Function} fn 
+   * @param {Function} fn
    */
   addFunction(fn) {
     fn.gameobject = this;
@@ -64,7 +64,7 @@ export class GameObject {
 
   /**
    * Get added gameobject with name.
-   * @param {string} name 
+   * @param {string} name
    */
   static find(name) {
     return resources.findGameObject(name);
@@ -77,11 +77,11 @@ export class GameObject {
 
   /**
    * Create new gameobject and add to resources.
-   * @param {string} name 
-   * @param {int} posX 
-   * @param {int} posY 
-   * @param {int} sizeX 
-   * @param {int} sizeY 
+   * @param {string} name
+   * @param {int} posX
+   * @param {int} posY
+   * @param {int} sizeX
+   * @param {int} sizeY
    */
   static create(name, posX, posY, sizeX, sizeY) {
     let temp = new GameObject(
@@ -103,11 +103,11 @@ export class GameObject {
 
   /**
    * Return the gameobjects inside the vector.
-   * @param {int} offsetX 
-   * @param {int} offsetY 
-   * @param {int} x 
-   * @param {int} y 
-   * @returns 
+   * @param {int} offsetX
+   * @param {int} offsetY
+   * @param {int} x
+   * @param {int} y
+   * @returns
    */
   checkTrigger(offsetX, offsetY, x, y) {
     let detectedObjects = [];

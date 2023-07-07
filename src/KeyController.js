@@ -163,8 +163,8 @@ export class KeyController {
       case "NumpadDecimal":
         KeyManager.KeyNumDecimal = true;
         break;
-    
-        //Function Keys
+
+      //Function Keys
       case "F1":
         KeyManager.KeyF1 = true;
         break;
@@ -202,7 +202,7 @@ export class KeyController {
         KeyManager.KeyF12 = true;
         break;
 
-    //Arrow Keys
+      //Arrow Keys
       case "ArrowRight":
         KeyManager.KeyRight = true;
         break;
@@ -216,7 +216,7 @@ export class KeyController {
         KeyManager.KeyDown = true;
         break;
 
-    //Special Keys
+      //Special Keys
       case "Space":
         KeyManager.KeySpace = true;
         break;
@@ -260,7 +260,7 @@ export class KeyController {
         KeyManager.KeyEnter = true;
         break;
 
-    //Control Keys
+      //Control Keys
       case "ShiftLeft":
         KeyManager.KeyLeftShift = true;
         break;
@@ -449,8 +449,8 @@ export class KeyController {
       case "NumpadDecimal":
         KeyManager.KeyNumDecimal = false;
         break;
-    
-        //Function Keys
+
+      //Function Keys
       case "F1":
         KeyManager.KeyF1 = false;
         break;
@@ -488,7 +488,7 @@ export class KeyController {
         KeyManager.KeyF12 = false;
         break;
 
-    //Arrow Keys
+      //Arrow Keys
       case "ArrowRight":
         KeyManager.KeyRight = false;
         break;
@@ -502,7 +502,7 @@ export class KeyController {
         KeyManager.KeyDown = false;
         break;
 
-    //Special Keys
+      //Special Keys
       case "Space":
         KeyManager.KeySpace = false;
         break;
@@ -546,7 +546,7 @@ export class KeyController {
         KeyManager.KeyEnter = false;
         break;
 
-    //Control Keys
+      //Control Keys
       case "ShiftLeft":
         KeyManager.KeyLeftShift = false;
         break;

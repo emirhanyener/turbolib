@@ -16,4 +16,10 @@ export { KeyManager } from "./KeyManager.js";
 export { KeyController } from "./KeyController.js";
 export { Alert } from "./Alert.js";
 export { AlertManager } from "./AlertManager.js";
-export { resources, updateCanvasSize, addGlobalFunction, functions, physics } from "./turbolib.js";
+export {
+  resources,
+  updateCanvasSize,
+  addGlobalFunction,
+  functions,
+  physics,
+} from "./turbolib.js";

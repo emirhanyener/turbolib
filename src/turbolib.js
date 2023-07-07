@@ -7,7 +7,7 @@ import {
   Physics,
   Resources,
   ImageObject,
-  ObjectFunction
+  ObjectFunction,
 } from "./index.js";
 
 let canvas = document.getElementById(config.canvas.id);
@@ -15,11 +15,13 @@ let ctx = canvas.getContext("2d");
 
 updateCanvasSize();
 
-export function updateCanvasSize(){
+export function updateCanvasSize() {
   canvas.width = config.canvas.width * config.canvas.resolution_multipler;
   canvas.height = config.canvas.height * config.canvas.resolution_multipler;
-  canvas.style.width = config.canvas.width * config.canvas.resolution_multipler + "px";
-  canvas.style.height = config.canvas.height * config.canvas.resolution_multipler + "px";
+  canvas.style.width =
+    config.canvas.width * config.canvas.resolution_multipler + "px";
+  canvas.style.height =
+    config.canvas.height * config.canvas.resolution_multipler + "px";
   ctx.scale(
     config.canvas.resolution_multipler,
     config.canvas.resolution_multipler
@@ -48,7 +50,7 @@ let fetch_data = await getImages();
 fetch_data.images.forEach((item) =>
   resources.addImage(new ImageObject(item.src, item.name))
 );
-if(fetch_data.animations){
+if (fetch_data.animations) {
   fetch_data.animations.forEach((item) => {
     resources.createAnimation(item.name, item.images, item.speed);
     if (item.flipVertical) resources.findImage(item.name).changeFlipVertical();
@@ -57,7 +59,7 @@ if(fetch_data.animations){
   });
 }
 
-export function addGlobalFunction(fn){
+export function addGlobalFunction(fn) {
   functions.push(fn);
 }
 
@@ -65,25 +67,22 @@ setInterval(() => {
   run();
 }, 10);
 
-
 document.addEventListener("mousemove", mousePositionUpdate);
 document.addEventListener("mousedown", mouseClickingUpdate);
 document.addEventListener("mouseup", mouseClickingUpdate);
 document.addEventListener("keydown", KeyController.keyDownEvent);
 document.addEventListener("keyup", KeyController.keyUpEvent);
 
-function mousePositionUpdate(e){
+function mousePositionUpdate(e) {
   resources.mouse.canvasPosition.update(e.clientX, e.clientY);
 }
-function mouseClickingUpdate(e){
-  if(e.buttons == 0)
-    resources.mouse.isPointerDown = false;
-  else
-    resources.mouse.isPointerDown = true;
+function mouseClickingUpdate(e) {
+  if (e.buttons == 0) resources.mouse.isPointerDown = false;
+  else resources.mouse.isPointerDown = true;
 }
 
 function run() {
-  resources.gameTime+=10;
+  resources.gameTime += 10;
   ctx.fillStyle = config.canvas.background_color;
   if (config.canvas.background == "")
     ctx.fillRect(0, 0, config.canvas.width, config.canvas.height);
@@ -96,7 +95,7 @@ function run() {
       config.canvas.height
     );
   resources.getGameObjects().forEach((element) => {
-    if(element.active){
+    if (element.active) {
       ctx.fillStyle = "#000000";
       if (element.image) {
         ctx.scale(
@@ -144,7 +143,7 @@ function run() {
     }
   });
   resources.getUI().forEach((element) => {
-    if(element.active){
+    if (element.active) {
       element.drawUI(ctx);
     }
   });
@@ -156,8 +155,11 @@ function run() {
   });
   let alertIndex = 1;
   ctx.font = "14px Arial";
-  if(resources.alertManager.alerts.length > 0){
-    if(resources.alertManager.alerts[0].time + resources.alertManager.delayTime < resources.gameTime){
+  if (resources.alertManager.alerts.length > 0) {
+    if (
+      resources.alertManager.alerts[0].time + resources.alertManager.delayTime <
+      resources.gameTime
+    ) {
       resources.alertManager.removeFirstAlert();
     }
   }

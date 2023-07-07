@@ -1,9 +1,5 @@
-export class Function{
-    constructor(){
-        
-    }
+export class Function {
+  constructor() {}
 
-    run(){
-
-    }
+  run() {}
 }
