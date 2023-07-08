@@ -10,8 +10,16 @@ export class ImageObject {
     this.index = 0;
     this.time = 0;
     this.animationSpeed = 10;
+    this.loop = true;
     this.flipHorizontal = false;
     this.flipVertical = false;
+  }
+
+  getLoop() {
+    return this.loop;
+  }
+  changeLoop() {
+    this.loop = !this.loop;
   }
 
   getFlipHorizontal() {
@@ -28,6 +36,7 @@ export class ImageObject {
   changeFlipVertical() {
     this.flipVertical = !this.flipVertical;
   }
+
   setAnimationSpeed(newSpeed) {
     this.animationSpeed = newSpeed;
   }
@@ -35,11 +44,18 @@ export class ImageObject {
     this.image.push(resources.findImage(name).image[0]);
   }
   getImage() {
+    console.log("index: " + this.index + ", image len: " + this.image.length);
     if (this.time > this.animationSpeed) {
-      this.index++;
       this.time = 0;
+      if((!(this.index > this.image.length - 2) && !this.loop) || this.loop){
+        this.index++;
+      }
+
+      if(this.index > this.image.length - 1){
+        this.index = 0;
+      }
     }
     this.time++;
-    return this.image[this.index % this.image.length];
+    return this.image[this.index];
   }
 }
