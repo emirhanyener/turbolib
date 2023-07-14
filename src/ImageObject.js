@@ -18,8 +18,8 @@ export class ImageObject {
   getLoop() {
     return this.loop;
   }
-  changeLoop() {
-    this.loop = !this.loop;
+  setLoop(value) {
+    this.loop = value;
   }
 
   getFlipHorizontal() {
@@ -30,11 +30,11 @@ export class ImageObject {
     if (this.flipVertical) return -1;
     return 1;
   }
-  changeFlipHorizontal() {
-    this.flipHorizontal = !this.flipHorizontal;
+  setFlipHorizontal(value) {
+    this.flipHorizontal = value;
   }
-  changeFlipVertical() {
-    this.flipVertical = !this.flipVertical;
+  setFlipVertical(value) {
+    this.flipVertical = value;
   }
 
   setAnimationSpeed(newSpeed) {
