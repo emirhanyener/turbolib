@@ -53,9 +53,10 @@ fetch_data.images.forEach((item) =>
 if (fetch_data.animations) {
   fetch_data.animations.forEach((item) => {
     resources.createAnimation(item.name, item.images, item.speed);
-    if (item.flipVertical) resources.findImage(item.name).changeFlipVertical();
+    if (item.loop) resources.findImage(item.name).setLoop(item.loop);
+    if (item.flipVertical) resources.findImage(item.name).setFlipVertical(item.flipVertical);
     if (item.flipHorizontal)
-      resources.findImage(item.name).changeFlipHorizontal();
+      resources.findImage(item.name).setFlipHorizontal(item.flipHorizontal);
   });
 }
 
