@@ -14,6 +14,7 @@ Images.json is image data in json format. In this file, pictures and animations 
         {
             "src": "image_source2",
             "name": "image_name2",
+            "loop": true | false,
             "flipHorizontal": true | false,
             "flipVertical": true | false
         }
@@ -21,13 +22,13 @@ Images.json is image data in json format. In this file, pictures and animations 
 }
 ```
 
-`src`: Image source
+`src`: Image source.
 
-`name`: Image name
+`name`: Image name.
 
-`flipHorizontal(optional)`: Image horizontal flip state
+`flipHorizontal(optional)`: Image horizontal flip state. Default value is false.
 
-`flipVertical(optional)`: Image vertical flip state
+`flipVertical(optional)`: Image vertical flip state. Default value is false.
 
 ### Animations
 
@@ -44,6 +45,7 @@ Images.json is image data in json format. In this file, pictures and animations 
                 "image_name2"
             ],
             "speed": animation_speed(int),
+            "loop": true | false,
             "flipHorizontal": true | false,
             "flipVertical": true | false
         }
@@ -51,12 +53,14 @@ Images.json is image data in json format. In this file, pictures and animations 
 }
 ```
 
-`name`: Animation name
+`name`: Animation name.
 
-`images`: Animation images
+`images`: Animation images.
 
-`speed`: Animation frame speed
+`speed`: Animation frame speed.
 
-`flipHorizontal(optional)`: Image horizontal flip state
+`loop(optional)`: Animation loop state. Default value is true.
 
-`flipVertical(optional)`: Image vertical flip state
+`flipHorizontal(optional)`: Animation horizontal flip state. Default value is false.
+
+`flipVertical(optional)`: Animation vertical flip state. Default value is false.
