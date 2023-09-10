@@ -68,14 +68,26 @@ setInterval(() => {
   run();
 }, 10);
 
+document.addEventListener("touchstart", mouseClickingUpdateFinger);
+document.addEventListener("touchend", mouseClickingUpdateFinger);
+document.addEventListener("touchmove", mousePositionUpdateFinger);
+
 document.addEventListener("mousemove", mousePositionUpdate);
 document.addEventListener("mousedown", mouseClickingUpdate);
 document.addEventListener("mouseup", mouseClickingUpdate);
+
 document.addEventListener("keydown", KeyController.keyDownEvent);
 document.addEventListener("keyup", KeyController.keyUpEvent);
 
+function mousePositionUpdateFinger(e) {
+  resources.mouse.canvasPosition.update(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+}
 function mousePositionUpdate(e) {
   resources.mouse.canvasPosition.update(e.clientX, e.clientY);
+}
+function mouseClickingUpdateFinger(e) {
+  if(e.touches.length > 0) resources.mouse.isPointerDown = true;
+  else resources.mouse.isPointerDown = false;
 }
 function mouseClickingUpdate(e) {
   if (e.buttons == 0) resources.mouse.isPointerDown = false;
