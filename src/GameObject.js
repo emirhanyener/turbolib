@@ -115,33 +115,36 @@ export class GameObject {
       Math.sqrt(Math.pow(x - offsetX, 2) + Math.pow(y - offsetY, 2))
     );
 
-    for (let i = 0; i < step + 2; i++) {
-      resources.getGameObjects().forEach((item) => {
-        if (item == this || !item.isInteractive) {
-          return;
-        }
-        if (
-          this.position.x + offsetX + (x / step) * i >
-          item.position.x - item.size.x / 2
-        ) {
+    for (let index = 0; index < resources.getGameObjects().length; index++) {
+      const item = resources.getGameObjects()[index];
+
+      for (let i = 0; i < step + 2; i++) {
+          if (item == this || !item.isInteractive) {
+            break;
+          }
           if (
-            this.position.x + offsetX + (x / step) * i <
-            item.position.x + item.size.x / 2
+            this.position.x + offsetX + (x / step) * i >
+            item.position.x - item.size.x / 2
           ) {
             if (
-              this.position.y + offsetY + (y / step) * i >
-              item.position.y - item.size.y / 2
+              this.position.x + offsetX + (x / step) * i <
+              item.position.x + item.size.x / 2
             ) {
               if (
-                this.position.y + offsetY + (y / step) * i <
-                item.position.y + item.size.y / 2
+                this.position.y + offsetY + (y / step) * i >
+                item.position.y - item.size.y / 2
               ) {
-                detectedObjects.push(item);
+                if (
+                  this.position.y + offsetY + (y / step) * i <
+                  item.position.y + item.size.y / 2
+                ) {
+                  detectedObjects.push(item);
+                  break;
+                }
               }
             }
           }
-        }
-      });
+      }
     }
     return detectedObjects;
   }
