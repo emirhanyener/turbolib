@@ -35,7 +35,6 @@ export class Physics {
   }
 
   calculate() {
-    this.gameObject.position.add(this.velocity.x, this.velocity.y);
     if (this.isVisible) {
       resources
         .findUI("downLeftLine")
@@ -97,10 +96,39 @@ export class Physics {
       );
     if (rightArray.length > 0) {
       this.velocity.x = 0;
+      /*
       this.gameObject.position.x =
         rightArray[0].position.x -
-        rightArray[0].size.x / 2 -
-        this.gameObject.size.x / 2;
+        rightArray[0].size.x / 2 - 
+        this.gameObject.size.x;
+        */
+      console.log("right");
+    }
+
+    //left
+    let leftArray = this.gameObject
+      .checkTrigger(
+        -this.gameObject.size.x / 2,
+        this.gameObject.size.y / 2 - 1,
+        Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
+        -this.gameObject.size.y + 2
+      )
+      .concat(
+        this.gameObject.checkTrigger(
+          -this.gameObject.size.x / 2,
+          -this.gameObject.size.y / 2 + 1,
+          Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
+          this.gameObject.size.y - 2
+        )
+      );
+    if (leftArray.length > 0) {
+      this.velocity.x = 0;
+      /*
+      this.gameObject.position.x =
+        leftArray[0].position.x +
+        leftArray[0].size.x;
+        */
+        console.log("left");
     }
 
     //down
@@ -130,6 +158,7 @@ export class Physics {
         downArray[0].position.y -
         downArray[0].size.y / 2 -
         this.gameObject.size.y / 2;
+        console.log("down");
     }
 
     //up
@@ -157,7 +186,10 @@ export class Physics {
           1;
       }
       this.velocity.y = -this.velocity.y * this.bounceRate;
+      console.log("up");
     }
+    this.gameObject.position.add(this.velocity.x, this.velocity.y);
+    //console.log("velocity(" + this.velocity.x + ", " + this.velocity.y + ")")
   }
 
   getMass() {
