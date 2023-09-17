@@ -44,7 +44,7 @@ export class ImageObject {
     this.image.push(resources.findImage(name).image[0]);
   }
   getImage() {
-    console.log("index: " + this.index + ", image len: " + this.image.length);
+    //console.log("index: " + this.index + ", image len: " + this.image.length);
     if (this.time > this.animationSpeed) {
       this.time = 0;
       if((!(this.index > this.image.length - 2) && !this.loop) || this.loop){

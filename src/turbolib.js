@@ -117,22 +117,22 @@ function run() {
         );
         ctx.drawImage(
           element.image.getImage(),
-          element.image.getFlipHorizontal() *
+          (element.image.getFlipHorizontal() *
             (element.position.x -
               element.size.x / 2 +
               (element.image.flipHorizontal
                 ? element.size.x - 2 * resources.getMainCamera().getPosition().x
                 : 0)) -
-            resources.getMainCamera().getPosition().x,
-          element.image.getFlipVertical() *
+            resources.getMainCamera().getPosition().x) * resources.getMainCamera().getZoom() + (config.canvas.width / 2 * (1 - resources.getMainCamera().getZoom())) * element.image.getFlipHorizontal(),
+          (element.image.getFlipVertical() *
             (element.position.y -
               element.size.y / 2 +
               (element.image.flipVertical
                 ? element.size.y - 2 * resources.getMainCamera().getPosition().y
                 : 0)) -
-            resources.getMainCamera().getPosition().y,
-          element.size.x,
-          element.size.y
+            resources.getMainCamera().getPosition().y) * resources.getMainCamera().getZoom() + (config.canvas.height / 2 * (1 - resources.getMainCamera().getZoom())) * element.image.getFlipVertical(),
+          element.size.x * resources.getMainCamera().getZoom(),
+          element.size.y * resources.getMainCamera().getZoom()
         );
         ctx.scale(
           1 * element.image.getFlipHorizontal(),
@@ -143,14 +143,14 @@ function run() {
           ctx.fillStyle = element.color;
         }
         ctx.fillRect(
-          element.position.x -
+          (element.position.x -
             element.size.x / 2 -
-            resources.getMainCamera().getPosition().x,
-          element.position.y -
+            resources.getMainCamera().getPosition().x) * resources.getMainCamera().getZoom() + config.canvas.width / 2 * (1 - resources.getMainCamera().getZoom()),
+          (element.position.y -
             element.size.y / 2 -
-            resources.getMainCamera().getPosition().y,
-          element.size.x,
-          element.size.y
+            resources.getMainCamera().getPosition().y) * resources.getMainCamera().getZoom() + config.canvas.height / 2 * (1 - resources.getMainCamera().getZoom()),
+          element.size.x * resources.getMainCamera().getZoom(),
+          element.size.y * resources.getMainCamera().getZoom()
         );
       }
     }
