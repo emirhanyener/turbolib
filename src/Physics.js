@@ -10,126 +10,7 @@ export class Physics {
     this.isVisible = false;
   }
 
-  visible() {
-    resources.addUI(new UILine("downLeftLine", new Vector(0, 0)));
-    resources.addUI(new UILine("downRightLine", new Vector(0, 0)));
-    resources.addUI(new UILine("upLeftLine", new Vector(0, 0)));
-    resources.addUI(new UILine("upRightLine", new Vector(0, 0)));
-
-    resources.addUI(new UILine("rightUpLine", new Vector(0, 0)));
-    resources.addUI(new UILine("rightDownLine", new Vector(0, 0)));
-    resources.addUI(new UILine("leftUpLine", new Vector(0, 0)));
-    resources.addUI(new UILine("leftDownLine", new Vector(0, 0)));
-
-    resources.findUI("downLeftLine").gameWorld = true;
-    resources.findUI("downRightLine").gameWorld = true;
-    resources.findUI("upLeftLine").gameWorld = true;
-    resources.findUI("upRightLine").gameWorld = true;
-
-    resources.findUI("rightUpLine").gameWorld = true;
-    resources.findUI("rightDownLine").gameWorld = true;
-    resources.findUI("leftUpLine").gameWorld = true;
-    resources.findUI("leftDownLine").gameWorld = true;
-
-    this.isVisible = !this.isVisible;
-  }
-
   calculate() {
-    if (this.isVisible) {
-      resources
-        .findUI("downLeftLine")
-        .updateFromTo(
-          this.gameObject.position.x - this.gameObject.size.x / 2,
-          this.gameObject.position.y + this.gameObject.size.y / 2,
-          this.gameObject.position.x + this.gameObject.size.x / 2,
-          this.gameObject.position.y +
-            this.gameObject.size.y / 2 +
-            Math.round(this.velocity.y < 0 ? 0 : this.velocity.y)
-        );
-      resources
-        .findUI("downRightLine")
-        .updateFromTo(
-          this.gameObject.position.x + this.gameObject.size.x / 2,
-          this.gameObject.position.y + this.gameObject.size.y / 2,
-          this.gameObject.position.x - this.gameObject.size.x / 2,
-          this.gameObject.position.y +
-            this.gameObject.size.y / 2 +
-            Math.round(this.velocity.y < 0 ? 0 : this.velocity.y)
-        );
-      resources
-        .findUI("upLeftLine")
-        .updateFromTo(
-          this.gameObject.position.x - this.gameObject.size.x / 2,
-          this.gameObject.position.y - this.gameObject.size.y / 2,
-          this.gameObject.position.x + this.gameObject.size.x / 2,
-          this.gameObject.position.y -
-            this.gameObject.size.y / 2 +
-            Math.round(this.velocity.y > 0 ? 0 : this.velocity.y)
-        );
-      resources
-        .findUI("upRightLine")
-        .updateFromTo(
-          this.gameObject.position.x + this.gameObject.size.x / 2,
-          this.gameObject.position.y - this.gameObject.size.y / 2,
-          this.gameObject.position.x - this.gameObject.size.x / 2,
-          this.gameObject.position.y -
-            this.gameObject.size.y / 2 +
-            Math.round(this.velocity.y > 0 ? 0 : this.velocity.y)
-        );
-    }
-
-    //right
-    let rightArray = this.gameObject
-      .checkTrigger(
-        this.gameObject.size.x / 2,
-        this.gameObject.size.y / 2 - 1,
-        Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
-        -this.gameObject.size.y + 2
-      )
-      .concat(
-        this.gameObject.checkTrigger(
-          this.gameObject.size.x / 2,
-          -this.gameObject.size.y / 2 + 1,
-          Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
-          this.gameObject.size.y - 2
-        )
-      );
-    if (rightArray.length > 0) {
-      this.velocity.x = 0;
-      /*
-      this.gameObject.position.x =
-        rightArray[0].position.x -
-        rightArray[0].size.x / 2 - 
-        this.gameObject.size.x;
-        */
-      console.log("right");
-    }
-
-    //left
-    let leftArray = this.gameObject
-      .checkTrigger(
-        -this.gameObject.size.x / 2,
-        this.gameObject.size.y / 2 - 1,
-        Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
-        -this.gameObject.size.y + 2
-      )
-      .concat(
-        this.gameObject.checkTrigger(
-          -this.gameObject.size.x / 2,
-          -this.gameObject.size.y / 2 + 1,
-          Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
-          this.gameObject.size.y - 2
-        )
-      );
-    if (leftArray.length > 0) {
-      this.velocity.x = 0;
-      /*
-      this.gameObject.position.x =
-        leftArray[0].position.x +
-        leftArray[0].size.x;
-        */
-        console.log("left");
-    }
 
     //down
     let downArray = this.gameObject
@@ -158,7 +39,6 @@ export class Physics {
         downArray[0].position.y -
         downArray[0].size.y / 2 -
         this.gameObject.size.y / 2;
-        console.log("down");
     }
 
     //up
@@ -186,10 +66,48 @@ export class Physics {
           1;
       }
       this.velocity.y = -this.velocity.y * this.bounceRate;
-      console.log("up");
+    }
+    
+    //right
+    let rightArray = this.gameObject
+      .checkTrigger(
+        this.gameObject.size.x / 2,
+        this.gameObject.size.y / 2 - 1,
+        Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
+        -this.gameObject.size.y + 2
+      )
+      .concat(
+        this.gameObject.checkTrigger(
+          this.gameObject.size.x / 2,
+          -this.gameObject.size.y / 2 + 1,
+          Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
+          this.gameObject.size.y - 2
+        )
+      );
+    if (rightArray.length > 0) {
+      this.velocity.x = 0;
+    }
+
+    //left
+    let leftArray = this.gameObject
+      .checkTrigger(
+        -this.gameObject.size.x / 2,
+        this.gameObject.size.y / 2 - 1,
+        Math.round(this.velocity.x > 0 ? 0 : this.velocity.x),
+        -this.gameObject.size.y + 2
+      )
+      .concat(
+        this.gameObject.checkTrigger(
+          -this.gameObject.size.x / 2,
+          -this.gameObject.size.y / 2 + 1,
+          Math.round(this.velocity.x > 0 ? 0 : this.velocity.x),
+          this.gameObject.size.y - 2
+        )
+      );
+    if (leftArray.length > 0) {
+      this.velocity.x = 0;
     }
     this.gameObject.position.add(this.velocity.x, this.velocity.y);
-    //console.log("velocity(" + this.velocity.x + ", " + this.velocity.y + ")")
   }
 
   getMass() {
