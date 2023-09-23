@@ -40,6 +40,10 @@ export let resources = new Resources();
 export let physics = [];
 export let functions = [];
 
+export function loadScene(scene){
+  resources.scene = scene;
+}
+
 async function getImages() {
   let res = await fetch(config.images_path + "./images.json");
   let images = await res.json();
@@ -107,7 +111,7 @@ function run() {
       config.canvas.width,
       config.canvas.height
     );
-  resources.getGameObjects().forEach((element) => {
+    resources.scene.getGameObjects().forEach((element) => {
     if (element.active) {
       ctx.fillStyle = "#000000";
       if (element.image) {
@@ -121,18 +125,18 @@ function run() {
             (element.position.x -
               element.size.x / 2 +
               (element.image.flipHorizontal
-                ? element.size.x - 2 * resources.getMainCamera().getPosition().x
+                ? element.size.x - 2 * resources.scene.getMainCamera().getPosition().x
                 : 0)) -
-            resources.getMainCamera().getPosition().x) * resources.getMainCamera().getZoom() + (config.canvas.width / 2 * (1 - resources.getMainCamera().getZoom())) * element.image.getFlipHorizontal(),
+                resources.scene.getMainCamera().getPosition().x) * resources.scene.getMainCamera().getZoom() + (config.canvas.width / 2 * (1 - resources.scene.getMainCamera().getZoom())) * element.image.getFlipHorizontal(),
           (element.image.getFlipVertical() *
             (element.position.y -
               element.size.y / 2 +
               (element.image.flipVertical
-                ? element.size.y - 2 * resources.getMainCamera().getPosition().y
+                ? element.size.y - 2 * resources.scene.getMainCamera().getPosition().y
                 : 0)) -
-            resources.getMainCamera().getPosition().y) * resources.getMainCamera().getZoom() + (config.canvas.height / 2 * (1 - resources.getMainCamera().getZoom())) * element.image.getFlipVertical(),
-          element.size.x * resources.getMainCamera().getZoom(),
-          element.size.y * resources.getMainCamera().getZoom()
+                resources.scene.getMainCamera().getPosition().y) * resources.scene.getMainCamera().getZoom() + (config.canvas.height / 2 * (1 - resources.scene.getMainCamera().getZoom())) * element.image.getFlipVertical(),
+          element.size.x * resources.scene.getMainCamera().getZoom(),
+          element.size.y * resources.scene.getMainCamera().getZoom()
         );
         ctx.scale(
           1 * element.image.getFlipHorizontal(),
@@ -145,17 +149,17 @@ function run() {
         ctx.fillRect(
           (element.position.x -
             element.size.x / 2 -
-            resources.getMainCamera().getPosition().x) * resources.getMainCamera().getZoom() + config.canvas.width / 2 * (1 - resources.getMainCamera().getZoom()),
+            resources.scene.getMainCamera().getPosition().x) * resources.scene.getMainCamera().getZoom() + config.canvas.width / 2 * (1 - resources.scene.getMainCamera().getZoom()),
           (element.position.y -
             element.size.y / 2 -
-            resources.getMainCamera().getPosition().y) * resources.getMainCamera().getZoom() + config.canvas.height / 2 * (1 - resources.getMainCamera().getZoom()),
-          element.size.x * resources.getMainCamera().getZoom(),
-          element.size.y * resources.getMainCamera().getZoom()
+            resources.scene.getMainCamera().getPosition().y) * resources.scene.getMainCamera().getZoom() + config.canvas.height / 2 * (1 - resources.scene.getMainCamera().getZoom()),
+          element.size.x * resources.scene.getMainCamera().getZoom(),
+          element.size.y * resources.scene.getMainCamera().getZoom()
         );
       }
     }
   });
-  resources.getUI().forEach((element) => {
+  resources.scene.getUI().forEach((element) => {
     if (element.active) {
       element.drawUI(ctx);
     }
