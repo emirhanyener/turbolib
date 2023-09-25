@@ -67,12 +67,12 @@ export class GameObject {
    * @param {string} name
    */
   static find(name) {
-    return resources.findGameObject(name);
+    return resources.scene.findGameObject(name);
   }
 
   static createWith(name, position, size) {
     let temp = new GameObject(name, position, size);
-    resources.addGameObject(temp);
+    resources.scene.addGameObject(temp);
   }
 
   /**
@@ -89,14 +89,14 @@ export class GameObject {
       new Vector(posX, posY),
       new Vector(sizeX, sizeY)
     );
-    resources.addGameObject(temp);
+    resources.scene.addGameObject(temp);
   }
 
   /**
    * Destroy gameobject.
    */
   destroy() {
-    resources
+    resources.scene
       .getGameObjects()
       .splice(gameObjects.getGameObjects().indexOf(this), 1);
   }
@@ -115,8 +115,8 @@ export class GameObject {
       Math.sqrt(Math.pow(x - offsetX, 2) + Math.pow(y - offsetY, 2))
     );
 
-    for (let index = 0; index < resources.getGameObjects().length; index++) {
-      const item = resources.getGameObjects()[index];
+    for (let index = 0; index < resources.scene.getGameObjects().length; index++) {
+      const item = resources.scene.getGameObjects()[index];
 
       for (let i = 0; i < step + 2; i++) {
           if (item == this || !item.isInteractive) {
