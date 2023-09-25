@@ -16,6 +16,7 @@ export { KeyManager } from "./KeyManager.js";
 export { KeyController } from "./KeyController.js";
 export { Alert } from "./Alert.js";
 export { AlertManager } from "./AlertManager.js";
+export { Scene } from "./Scene.js";
 export {
   resources,
   updateCanvasSize,
