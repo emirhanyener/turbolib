@@ -1,9 +1,4 @@
-import {
-  ImageObject,
-  Vector,
-  AlertManager,
-  Scene
-} from "./index.js";
+import { ImageObject, Vector, AlertManager, Scene } from "./index.js";
 
 export class Resources {
   constructor() {

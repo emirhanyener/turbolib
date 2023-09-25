@@ -11,7 +11,6 @@ export class Physics {
   }
 
   calculate() {
-
     //down
     let downArray = this.gameObject
       .checkTrigger(
@@ -67,7 +66,7 @@ export class Physics {
       }
       this.velocity.y = -this.velocity.y * this.bounceRate;
     }
-    
+
     //right
     let rightArray = this.gameObject
       .checkTrigger(

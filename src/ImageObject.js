@@ -47,11 +47,11 @@ export class ImageObject {
     //console.log("index: " + this.index + ", image len: " + this.image.length);
     if (this.time > this.animationSpeed) {
       this.time = 0;
-      if((!(this.index > this.image.length - 2) && !this.loop) || this.loop){
+      if ((!(this.index > this.image.length - 2) && !this.loop) || this.loop) {
         this.index++;
       }
 
-      if(this.index > this.image.length - 1){
+      if (this.index > this.image.length - 1) {
         this.index = 0;
       }
     }

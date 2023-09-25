@@ -115,35 +115,39 @@ export class GameObject {
       Math.sqrt(Math.pow(x - offsetX, 2) + Math.pow(y - offsetY, 2))
     );
 
-    for (let index = 0; index < resources.scene.getGameObjects().length; index++) {
+    for (
+      let index = 0;
+      index < resources.scene.getGameObjects().length;
+      index++
+    ) {
       const item = resources.scene.getGameObjects()[index];
 
       for (let i = 0; i < step + 2; i++) {
-          if (item == this || !item.isInteractive) {
-            break;
-          }
+        if (item == this || !item.isInteractive) {
+          break;
+        }
+        if (
+          this.position.x + offsetX + (x / step) * i >
+          item.position.x - item.size.x / 2
+        ) {
           if (
-            this.position.x + offsetX + (x / step) * i >
-            item.position.x - item.size.x / 2
+            this.position.x + offsetX + (x / step) * i <
+            item.position.x + item.size.x / 2
           ) {
             if (
-              this.position.x + offsetX + (x / step) * i <
-              item.position.x + item.size.x / 2
+              this.position.y + offsetY + (y / step) * i >
+              item.position.y - item.size.y / 2
             ) {
               if (
-                this.position.y + offsetY + (y / step) * i >
-                item.position.y - item.size.y / 2
+                this.position.y + offsetY + (y / step) * i <
+                item.position.y + item.size.y / 2
               ) {
-                if (
-                  this.position.y + offsetY + (y / step) * i <
-                  item.position.y + item.size.y / 2
-                ) {
-                  detectedObjects.push(item);
-                  break;
-                }
+                detectedObjects.push(item);
+                break;
               }
             }
           }
+        }
       }
     }
     return detectedObjects;

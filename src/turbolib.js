@@ -40,7 +40,7 @@ export let resources = new Resources();
 export let physics = [];
 export let functions = [];
 
-export function loadScene(scene){
+export function loadScene(scene) {
   resources.scene = scene;
 }
 
@@ -58,7 +58,8 @@ if (fetch_data.animations) {
   fetch_data.animations.forEach((item) => {
     resources.createAnimation(item.name, item.images, item.speed);
     if (item.loop) resources.findImage(item.name).setLoop(item.loop);
-    if (item.flipVertical) resources.findImage(item.name).setFlipVertical(item.flipVertical);
+    if (item.flipVertical)
+      resources.findImage(item.name).setFlipVertical(item.flipVertical);
     if (item.flipHorizontal)
       resources.findImage(item.name).setFlipHorizontal(item.flipHorizontal);
   });
@@ -84,13 +85,16 @@ document.addEventListener("keydown", KeyController.keyDownEvent);
 document.addEventListener("keyup", KeyController.keyUpEvent);
 
 function mousePositionUpdateFinger(e) {
-  resources.mouse.canvasPosition.update(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+  resources.mouse.canvasPosition.update(
+    e.changedTouches[0].clientX,
+    e.changedTouches[0].clientY
+  );
 }
 function mousePositionUpdate(e) {
   resources.mouse.canvasPosition.update(e.clientX, e.clientY);
 }
 function mouseClickingUpdateFinger(e) {
-  if(e.touches.length > 0) resources.mouse.isPointerDown = true;
+  if (e.touches.length > 0) resources.mouse.isPointerDown = true;
   else resources.mouse.isPointerDown = false;
 }
 function mouseClickingUpdate(e) {
@@ -111,7 +115,7 @@ function run() {
       config.canvas.width,
       config.canvas.height
     );
-    resources.scene.getGameObjects().forEach((element) => {
+  resources.scene.getGameObjects().forEach((element) => {
     if (element.active) {
       ctx.fillStyle = "#000000";
       if (element.image) {
@@ -125,16 +129,26 @@ function run() {
             (element.position.x -
               element.size.x / 2 +
               (element.image.flipHorizontal
-                ? element.size.x - 2 * resources.scene.getMainCamera().getPosition().x
+                ? element.size.x -
+                  2 * resources.scene.getMainCamera().getPosition().x
                 : 0)) -
-                resources.scene.getMainCamera().getPosition().x) * resources.scene.getMainCamera().getZoom() + (config.canvas.width / 2 * (1 - resources.scene.getMainCamera().getZoom())) * element.image.getFlipHorizontal(),
+            resources.scene.getMainCamera().getPosition().x) *
+            resources.scene.getMainCamera().getZoom() +
+            (config.canvas.width / 2) *
+              (1 - resources.scene.getMainCamera().getZoom()) *
+              element.image.getFlipHorizontal(),
           (element.image.getFlipVertical() *
             (element.position.y -
               element.size.y / 2 +
               (element.image.flipVertical
-                ? element.size.y - 2 * resources.scene.getMainCamera().getPosition().y
+                ? element.size.y -
+                  2 * resources.scene.getMainCamera().getPosition().y
                 : 0)) -
-                resources.scene.getMainCamera().getPosition().y) * resources.scene.getMainCamera().getZoom() + (config.canvas.height / 2 * (1 - resources.scene.getMainCamera().getZoom())) * element.image.getFlipVertical(),
+            resources.scene.getMainCamera().getPosition().y) *
+            resources.scene.getMainCamera().getZoom() +
+            (config.canvas.height / 2) *
+              (1 - resources.scene.getMainCamera().getZoom()) *
+              element.image.getFlipVertical(),
           element.size.x * resources.scene.getMainCamera().getZoom(),
           element.size.y * resources.scene.getMainCamera().getZoom()
         );
@@ -149,10 +163,16 @@ function run() {
         ctx.fillRect(
           (element.position.x -
             element.size.x / 2 -
-            resources.scene.getMainCamera().getPosition().x) * resources.scene.getMainCamera().getZoom() + config.canvas.width / 2 * (1 - resources.scene.getMainCamera().getZoom()),
+            resources.scene.getMainCamera().getPosition().x) *
+            resources.scene.getMainCamera().getZoom() +
+            (config.canvas.width / 2) *
+              (1 - resources.scene.getMainCamera().getZoom()),
           (element.position.y -
             element.size.y / 2 -
-            resources.scene.getMainCamera().getPosition().y) * resources.scene.getMainCamera().getZoom() + config.canvas.height / 2 * (1 - resources.scene.getMainCamera().getZoom()),
+            resources.scene.getMainCamera().getPosition().y) *
+            resources.scene.getMainCamera().getZoom() +
+            (config.canvas.height / 2) *
+              (1 - resources.scene.getMainCamera().getZoom()),
           element.size.x * resources.scene.getMainCamera().getZoom(),
           element.size.y * resources.scene.getMainCamera().getZoom()
         );
