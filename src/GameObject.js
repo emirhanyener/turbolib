@@ -31,7 +31,7 @@ export class GameObject {
    * Add physics to gameobject.
    */
   addPhysics() {
-    if (physics.find((physics) => physics.gameObject.name == this.name)) {
+    if (physics.find((physics) => physics.gameObject == this)) {
       console.error("Physics already added");
     } else {
       let temp = new Physics(this);
@@ -53,7 +53,7 @@ export class GameObject {
    * Get added physics.
    */
   getPhysics() {
-    let temp = physics.find((physics) => physics.gameObject.name == this.name);
+    let temp = physics.find((physics) => physics.gameObject == this);
 
     if (temp) {
       return temp;
@@ -90,6 +90,23 @@ export class GameObject {
       new Vector(sizeX, sizeY)
     );
     resources.scene.addGameObject(temp);
+  }
+
+  /**
+   * Create new gameobject and return.
+   * @param {string} name
+   * @param {int} posX
+   * @param {int} posY
+   * @param {int} sizeX
+   * @param {int} sizeY
+   */
+  static createRaw(name, posX, posY, sizeX, sizeY) {
+    let temp = new GameObject(
+      name,
+      new Vector(posX, posY),
+      new Vector(sizeX, sizeY)
+    );
+    return temp;
   }
 
   /**
