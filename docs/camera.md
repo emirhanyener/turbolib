@@ -4,7 +4,7 @@ It is used to add a camera to the game. There are two types, FollowerCamera for 
 
 ## Using Camera
 ```javascript
-resources.setMainCamera(new Camera(x, y));
+scene.setMainCamera(new Camera(x, y));
 ```
 `x`: Vector of x axis
 `y`: Vector of y axis
@@ -13,7 +13,7 @@ resources.setMainCamera(new Camera(x, y));
 ### Static Camera
 It stays stably in the set position.
 ```javascript
-resources.setMainCamera(new Camera(x, y));
+scene.setMainCamera(new Camera(x, y));
 ```
 `x`: Vector of x axis
 `y`: Vector of y axis
@@ -21,6 +21,6 @@ resources.setMainCamera(new Camera(x, y));
 ### Follower Camera
 It automatically follows the set object as its position.
 ```javascript
-resources.setMainCamera(new FollowerCamera(GameObject.find(gameObjectName)));
+scene.setMainCamera(new FollowerCamera(GameObject.find(gameObjectName)));
 ```
 `gameObjectName`: Added GameObject name
