@@ -19,14 +19,14 @@ resources.gameTime;
 #### setMainCamera
 This method is used to add or update cameras in the game.
 ```javascript
-resources.setMainCamera(cameraObject);
+scene.setMainCamera(cameraObject);
 ```
 `cameraObject`: Camera or FollowerCamera object. 
 
 #### getMainCamera
 This method is used to get the camera object.
 ```javascript
-resources.getMainCamera();
+scene.getMainCamera();
 ```
 
 ### Mouse
@@ -40,20 +40,20 @@ resources.getMousePosition();
 #### getGameObjects
 This method is used to get all the gameobject items in the game.
 ```javascript
-resources.getGameObjects();
+scene.getGameObjects();
 ```
 
 #### addGameObject
 This method is used to add gameobjects manually.
 ```javascript
-resources.addGameObject(gameobject);
+scene.addGameObject(gameobject);
 ```
 `gameobject`: GameObject instance.
 
 #### findGameObject
 This method is used to find an gameobject in the game by name.
 ```javascript
-resources.findGameObject(name);
+scene.findGameObject(name);
 ```
 `name`: GameObject name.
 
@@ -61,19 +61,19 @@ resources.findGameObject(name);
 #### getUI
 This method is used to get all the user interface items in the game.
 ```javascript
-resources.getUI();
+scene.getUI();
 ```
 
 #### addUI
 This method is used to add user interfaces manually.
 ```javascript
-resources.addUI(uiObject);
+scene.addUI(uiObject);
 ```
 `uiObject`: UIBox | UILine | UIText
 
 #### findUI
 This method is used to find an user interface in the game by name.
 ```javascript
-resources.findUI(name);
+scene.findUI(name);
 ```
 `name`: UI name.
