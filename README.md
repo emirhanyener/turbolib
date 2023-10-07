@@ -18,9 +18,9 @@
 - ~~Global function~~
 - ~~Keyboard Manager~~
 - ~~Alerts~~
+- ~~Scenes~~
+- ~~Collision~~
 - Trigger event
-- Scenes
-- Collision
 - Particles
 
 ## Installation
