@@ -43,10 +43,6 @@ export class Scene {
    * @param {GameObject} gameObject
    */
   addGameObject(gameObject) {
-    if (this.isGameObjectExists(gameObject.name)) {
-      console.error("GameObject already exists");
-      return;
-    }
     this.gameobjects.push(gameObject);
   }
   isGameObjectExists(name) {
@@ -68,6 +64,15 @@ export class Scene {
     }
 
     console.error("GameObject not found");
+  }
+  findGameObjects(name) {
+    let temp = this.gameobjects.filter((gameObject) => gameObject.name == name);
+
+    if (temp) {
+      return temp;
+    }
+
+    console.error("GameObjects not found");
   }
 
   /**
