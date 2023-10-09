@@ -69,6 +69,9 @@ export class GameObject {
   static find(name) {
     return resources.scene.findGameObject(name);
   }
+  static findAll(name) {
+    return resources.scene.findGameObjects(name);
+  }
 
   static createWith(name, position, size) {
     let temp = new GameObject(name, position, size);
