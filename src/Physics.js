@@ -4,6 +4,7 @@ export class Physics {
   constructor(gameObject) {
     this.gameObject = gameObject;
     this.velocity = new Vector(0, 0);
+    this.isGravityActive = true;
     this.mass = 1;
     this.isGrounded = false;
     this.bounceRate = 0;
@@ -29,7 +30,9 @@ export class Physics {
       );
     if (downArray.length == 0) {
       this.isGrounded = false;
-      this.velocity.add(0, (this.mass * config.gravity) / 100);
+      if (this.isGravityActive) {
+        this.velocity.add(0, (this.mass * config.gravity) / 100);
+      }
     }
     if (downArray.length > 0) {
       this.isGrounded = true;
