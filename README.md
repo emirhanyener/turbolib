@@ -8,20 +8,20 @@
 ## About
 `turbolib` is a high-level javascript 2D game library. 
 
-## Featues
-- ~~GameObject physics~~
-- ~~Easy image manage~~
-- ~~Animation~~
-- ~~Camera~~
-- ~~User Interface~~
-- ~~Object function~~
-- ~~Global function~~
-- ~~Keyboard Manager~~
-- ~~Alerts~~
-- ~~Scenes~~
-- ~~Collision~~
-- Trigger event
-- Particles
+## Features
+- [X] GameObject physics
+- [X] Easy image manage
+- [X] Animation
+- [X] Camera
+- [X] User Interface
+- [X] Object function
+- [X] Global function
+- [X] Keyboard Manager
+- [X] Alerts
+- [X] Scenes
+- [X] Collision
+- [ ] Trigger event
+- [ ] Particles
 
 ## Installation
 This project created with JavaScript. It doesn't need any requirements.
