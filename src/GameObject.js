@@ -93,6 +93,7 @@ export class GameObject {
       new Vector(sizeX, sizeY)
     );
     resources.scene.addGameObject(temp);
+    return temp;
   }
 
   /**
@@ -118,7 +119,7 @@ export class GameObject {
   destroy() {
     resources.scene
       .getGameObjects()
-      .splice(gameObjects.getGameObjects().indexOf(this), 1);
+      .splice(resources.scene.getGameObjects().indexOf(this), 1);
   }
 
   /**
@@ -171,5 +172,17 @@ export class GameObject {
       }
     }
     return detectedObjects;
+  }
+
+  clone(){
+    let temp = GameObject.create(this.name, this.position.x, this.position.y, this.size.x, this.size.y);
+    temp.image = this.image;
+    temp.color = this.color;
+    temp.isInteractive = this.isInteractive;
+    temp.active = this.active;
+    if(this.getPhysics()){
+      temp.addPhysics();
+    }
+    return temp;
   }
 }
