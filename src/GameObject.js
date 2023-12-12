@@ -9,6 +9,7 @@ export class GameObject {
     this.color;
     this.isInteractive = true;
     this.active = true;
+    this.rotationZ = 0;
   }
 
   /**
