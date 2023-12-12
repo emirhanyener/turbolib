@@ -119,10 +119,16 @@ function run() {
     if (element.active) {
       ctx.fillStyle = "#000000";
       if (element.image) {
+        ctx.save();
+        ctx.translate((element.position.x - resources.scene.getMainCamera().getPosition().x), +(element.position.y - resources.scene.getMainCamera().getPosition().y));
+        ctx.rotate(element.rotationZ*Math.PI/180);
+        ctx.translate(-(element.position.x - resources.scene.getMainCamera().getPosition().x), -(element.position.y - resources.scene.getMainCamera().getPosition().y));
+
         ctx.scale(
           1 * element.image.getFlipHorizontal(),
           1 * element.image.getFlipVertical()
         );
+
         ctx.drawImage(
           element.image.getImage(),
           (element.image.getFlipHorizontal() *
@@ -152,14 +158,22 @@ function run() {
           element.size.x * resources.scene.getMainCamera().getZoom(),
           element.size.y * resources.scene.getMainCamera().getZoom()
         );
+
         ctx.scale(
           1 * element.image.getFlipHorizontal(),
           1 * element.image.getFlipVertical()
         );
+        
+        ctx.restore();
       } else {
         if (element.color) {
           ctx.fillStyle = element.color;
         }
+        ctx.save();
+        ctx.translate((element.position.x - resources.scene.getMainCamera().getPosition().x), +(element.position.y - resources.scene.getMainCamera().getPosition().y));
+        ctx.rotate(element.rotationZ*Math.PI/180);
+        ctx.translate(-(element.position.x - resources.scene.getMainCamera().getPosition().x), -(element.position.y - resources.scene.getMainCamera().getPosition().y));
+        
         ctx.fillRect(
           (element.position.x -
             element.size.x / 2 -
@@ -176,6 +190,7 @@ function run() {
           element.size.x * resources.scene.getMainCamera().getZoom(),
           element.size.y * resources.scene.getMainCamera().getZoom()
         );
+        ctx.restore();
       }
     }
   });
@@ -205,4 +220,11 @@ function run() {
     ctx.fillText(element.text, 0, alertIndex * 18);
     alertIndex++;
   });
+}
+
+function deg2Rad(deg){
+  return (deg * (Math.PI / 180));
+}
+function rad2Deg(rad){
+  return (rad * (180 / Math.PI));
 }
