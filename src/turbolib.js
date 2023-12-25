@@ -27,6 +27,17 @@ export function updateCanvasSize() {
     config.canvas.resolution_multipler
   );
 }
+export let resources = new Resources();
+export let physics = [];
+export let functions = [];
+
+export function loadScene(scene) {
+  resources.scene = scene;
+}
+
+export function addGlobalFunction(fn) {
+  functions.push(fn);
+}
 
 ctx.scale(
   config.canvas.resolution_multipler,
@@ -36,24 +47,19 @@ ctx.scale(
 canvas.style.width = config.canvas.width + "px";
 canvas.style.height = config.canvas.height + "px";
 
-export let resources = new Resources();
-export let physics = [];
-export let functions = [];
-
-export function loadScene(scene) {
-  resources.scene = scene;
-}
-
+export async function init(){
 async function getImages() {
-  let res = await fetch(config.images_path + "./images.json");
+  let res = await fetch(config.images_path + "images.json");
   let images = await res.json();
   return images;
 }
 
 let fetch_data = await getImages();
 fetch_data.images.forEach((item) =>
-  resources.addImage(new ImageObject(item.src, item.name))
+  resources.addImage(new ImageObject(config.images_path + item.src, item.name))
 );
+console.log(resources);
+
 if (fetch_data.animations) {
   fetch_data.animations.forEach((item) => {
     resources.createAnimation(item.name, item.images, item.speed);
@@ -63,10 +69,6 @@ if (fetch_data.animations) {
     if (item.flipHorizontal)
       resources.findImage(item.name).setFlipHorizontal(item.flipHorizontal);
   });
-}
-
-export function addGlobalFunction(fn) {
-  functions.push(fn);
 }
 
 setInterval(() => {
@@ -227,4 +229,5 @@ function deg2Rad(deg){
 }
 function rad2Deg(rad){
   return (rad * (180 / Math.PI));
+}
 }

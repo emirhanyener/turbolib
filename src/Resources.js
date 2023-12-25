@@ -71,6 +71,7 @@ export class Resources {
       return;
     }
     this.images.push(image);
+    console.log(this.images);
   }
   findImage(name) {
     let temp = this.images.find((image) => image.name == name);
@@ -79,7 +80,7 @@ export class Resources {
       return temp;
     }
 
-    console.error("Image not found");
+    console.error("Image not found: " + name);
   }
   isImageExists(name) {
     if (this.images.find((image) => image.name == name)) return true;

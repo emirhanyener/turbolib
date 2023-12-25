@@ -24,4 +24,5 @@ export {
   loadScene,
   functions,
   physics,
+  init,
 } from "./turbolib.js";
