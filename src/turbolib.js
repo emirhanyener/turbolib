@@ -49,14 +49,14 @@ canvas.style.height = config.canvas.height + "px";
 
 export async function init(){
 async function getImages() {
-  let res = await fetch(config.images_path + "images.json");
+  let res = await fetch(config.path + "images.json");
   let images = await res.json();
   return images;
 }
 
 let fetch_data = await getImages();
 fetch_data.images.forEach((item) =>
-  resources.addImage(new ImageObject(config.images_path + item.src, item.name))
+  resources.addImage(new ImageObject(config.path + item.src, item.name))
 );
 console.log(resources);
 

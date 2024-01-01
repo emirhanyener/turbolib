@@ -7,6 +7,6 @@ export let config = {
     background: "",
     background_color: "#FFFFFF",
   },
-  images_path: "",
+  path: "",
   gravity: 9.81,
 };
