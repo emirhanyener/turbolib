@@ -6,7 +6,7 @@ import {
   Vector,
   AlertManager,
   UI,
-} from "./index.js";
+} from "../index.js";
 
 export class Scene {
   constructor() {

@@ -1,4 +1,4 @@
-import { config, UILine, Vector, resources } from "./index.js";
+import { config, UILine, Vector, resources } from "../index.js";
 
 export class Physics {
   constructor(gameObject) {

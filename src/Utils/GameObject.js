@@ -1,4 +1,4 @@
-import { physics, resources, functions, Physics, Vector } from "./index.js";
+import { physics, resources, functions, Physics, Vector } from "../index.js";
 
 export class GameObject {
   constructor(name, position, size) {

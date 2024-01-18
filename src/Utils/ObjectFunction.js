@@ -1,4 +1,4 @@
-import { Function } from "./index.js";
+import { Function } from "../index.js";
 
 export class ObjectFunction extends Function {
   constructor(gameobject) {

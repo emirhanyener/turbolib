@@ -1,4 +1,4 @@
-import { resources } from "./index.js";
+import { resources } from "../index.js";
 
 export class ImageObject {
   constructor(src, name) {

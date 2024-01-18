@@ -1,4 +1,4 @@
-import { Alert } from "./index.js";
+import { Alert } from "../index.js";
 
 export class AlertManager {
   constructor() {

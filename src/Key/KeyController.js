@@ -1,4 +1,4 @@
-import { KeyManager } from "./index.js";
+import { KeyManager } from "../index.js";
 
 export class KeyController {
   static keyDownEvent(event) {

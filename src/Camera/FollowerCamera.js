@@ -1,4 +1,4 @@
-import { Camera, Vector, config } from "./index.js";
+import { Camera, Vector, config } from "../index.js";
 
 export class FollowerCamera extends Camera {
   constructor(gameobject) {
