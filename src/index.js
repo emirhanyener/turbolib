@@ -26,3 +26,5 @@ export {
   physics,
   init,
 } from "./turbolib.js";
+
+export const version = "0.2.0";
