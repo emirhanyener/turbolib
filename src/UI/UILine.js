@@ -16,12 +16,12 @@ export class UILine extends UI {
     context.beginPath();
     if (this.gameWorld) {
       context.moveTo(
-        this.position.x - resources.getMainCamera().getPosition().x,
-        this.position.y - resources.getMainCamera().getPosition().y
+        this.position.x - resources.scene.getMainCamera().getPosition().x,
+        this.position.y - resources.scene.getMainCamera().getPosition().y
       );
       context.lineTo(
-        this.toPosition.x - resources.getMainCamera().getPosition().x,
-        this.toPosition.y - resources.getMainCamera().getPosition().y
+        this.toPosition.x - resources.scene.getMainCamera().getPosition().x,
+        this.toPosition.y - resources.scene.getMainCamera().getPosition().y
       );
     } else {
       context.moveTo(this.position.x, this.position.y);
