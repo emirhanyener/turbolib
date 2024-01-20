@@ -1,4 +1,4 @@
-import { ImageObject, Vector, AlertManager, Scene } from "../index.js";
+import { ImageObject, Vector, AlertManager, Scene, config } from "../index.js";
 
 export class Resources {
   constructor() {
@@ -38,7 +38,9 @@ export class Resources {
       return temp;
     }
 
-    console.error("GameObject not found");
+    if (config.debug) {
+      console.error("GameObject not found");
+    }
   }
 
   /**
@@ -62,16 +64,22 @@ export class Resources {
       return temp;
     }
 
-    console.error("UI not found");
+    if (config.debug) {
+      console.error("UI not found");
+    }
   }
 
   addImage(image) {
     if (this.isImageExists(image.name)) {
-      console.error("Image already exists");
+      if (config.debug) {
+        console.error("Image already exists");
+      }
       return;
     }
     this.images.push(image);
-    console.log(this.images);
+    if (config.debug) {
+      console.log("Image added: ", image);
+    }
   }
   findImage(name) {
     let temp = this.images.find((image) => image.name == name);
@@ -80,7 +88,9 @@ export class Resources {
       return temp;
     }
 
-    console.error("Image not found: " + name);
+    if (config.debug) {
+      console.error("Image not found: " + name);
+    }
   }
   isImageExists(name) {
     if (this.images.find((image) => image.name == name)) return true;
@@ -88,7 +98,9 @@ export class Resources {
   }
   createAnimation(name, images, animationSpeed) {
     if (this.isImageExists(name)) {
-      console.error("Image already exists");
+      if (config.debug) {
+        console.error("Image already exists");
+      }
       return;
     }
     this.addImage(
