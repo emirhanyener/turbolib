@@ -17,6 +17,9 @@ export { KeyController } from "./Key/KeyController.js";
 export { Alert } from "./Alert/Alert.js";
 export { AlertManager } from "./Alert/AlertManager.js";
 export { Scene } from "./Utils/Scene.js";
+export { ImageConverter } from "./MapManager/ImageConverter.js";
+export { ColorGameobject } from "./MapManager/ColorGameobject.js";
+export { MapManager } from "./MapManager/MapManager.js";
 export {
   resources,
   updateCanvasSize,
