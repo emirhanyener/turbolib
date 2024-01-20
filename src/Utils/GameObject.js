@@ -15,20 +15,32 @@ export class GameObject {
     this.relativeVector = new Vector();
   }
 
-  right(){
-    this.relativeVector.update(Math.cos(this.rotationZ * (Math.PI / 180)), Math.sin(this.rotationZ * (Math.PI / 180)));
+  right() {
+    this.relativeVector.update(
+      Math.cos(this.rotationZ * (Math.PI / 180)),
+      Math.sin(this.rotationZ * (Math.PI / 180))
+    );
     return this.relativeVector;
   }
-  left(){
-    this.relativeVector.update(Math.cos((this.rotationZ + 180) * (Math.PI / 180)), Math.sin((this.rotationZ + 180) * (Math.PI / 180)));
+  left() {
+    this.relativeVector.update(
+      Math.cos((this.rotationZ + 180) * (Math.PI / 180)),
+      Math.sin((this.rotationZ + 180) * (Math.PI / 180))
+    );
     return this.relativeVector;
   }
-  up(){
-    this.relativeVector.update(Math.cos((this.rotationZ - 90) * (Math.PI / 180)), Math.sin((this.rotationZ - 90) * (Math.PI / 180)));
+  up() {
+    this.relativeVector.update(
+      Math.cos((this.rotationZ - 90) * (Math.PI / 180)),
+      Math.sin((this.rotationZ - 90) * (Math.PI / 180))
+    );
     return this.relativeVector;
   }
-  down(){
-    this.relativeVector.update(Math.cos((this.rotationZ + 90) * (Math.PI / 180)), Math.sin((this.rotationZ + 90) * (Math.PI / 180)));
+  down() {
+    this.relativeVector.update(
+      Math.cos((this.rotationZ + 90) * (Math.PI / 180)),
+      Math.sin((this.rotationZ + 90) * (Math.PI / 180))
+    );
     return this.relativeVector;
   }
 
@@ -144,22 +156,22 @@ export class GameObject {
       .splice(resources.scene.getGameObjects().indexOf(this), 1);
   }
 
-  addChild(child){
+  addChild(child) {
     child.parent = this;
     this.childs.push(child);
   }
-  removeChild(child){
+  removeChild(child) {
     this.childs.splice(this.childs.indexOf(child), 1);
   }
 
-  setParent(parent){
-    if(this.parent == null){
+  setParent(parent) {
+    if (this.parent == null) {
       parent.addChild(this);
       this.parent = parent;
     }
   }
-  removeParent(){
-    if(this.parent != null){
+  removeParent() {
+    if (this.parent != null) {
       this.parent.removeChild(this);
       this.parent = null;
     }
@@ -217,13 +229,19 @@ export class GameObject {
     return detectedObjects;
   }
 
-  clone(){
-    let temp = GameObject.create(this.name, this.position.x, this.position.y, this.size.x, this.size.y);
+  clone() {
+    let temp = GameObject.create(
+      this.name,
+      this.position.x,
+      this.position.y,
+      this.size.x,
+      this.size.y
+    );
     temp.image = this.image;
     temp.color = this.color;
     temp.isInteractive = this.isInteractive;
     temp.active = this.active;
-    if(this.getPhysics()){
+    if (this.getPhysics()) {
       temp.addPhysics();
     }
     return temp;
