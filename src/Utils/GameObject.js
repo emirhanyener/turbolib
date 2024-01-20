@@ -49,7 +49,6 @@ export class GameObject {
    * @param {string} name
    */
   setImage(name) {
-    console.log(resources);
     this.image = resources.findImage(name);
   }
 
@@ -230,12 +229,12 @@ export class GameObject {
   }
 
   clone() {
-    let temp = GameObject.create(
+    let temp = new GameObject(
       this.name,
-      this.position.x,
-      this.position.y,
-      this.size.x,
-      this.size.y
+      new Vector(this.position.x,
+      this.position.y),
+      new Vector(this.size.x,
+      this.size.y)
     );
     temp.image = this.image;
     temp.color = this.color;
