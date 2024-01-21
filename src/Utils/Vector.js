@@ -29,8 +29,8 @@ export class Vector{
   }
 
   /**
-   * Multiply current vector with scale param.
-   * @param {int} scale
+   * Multiply current vector with vector param.
+   * @param {Vector} scale
    */
   multiple(vector) {
     this.x = x * vector.x;
