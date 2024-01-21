@@ -20,8 +20,9 @@
 - [X] Alerts
 - [X] Scenes
 - [X] Collision
-- [ ] Trigger event
+- [X] Map Image to Scene
 - [ ] Particles
+- [ ] Trigger event
 
 ## Installation
 This project created with JavaScript. It doesn't need any requirements.
