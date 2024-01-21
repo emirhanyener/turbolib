@@ -19,7 +19,7 @@ export { AlertManager } from "./Alert/AlertManager.js";
 export { Scene } from "./Utils/Scene.js";
 export { ImageConverter } from "./MapManager/ImageConverter.js";
 export { ColorGameobject } from "./MapManager/ColorGameobject.js";
-export { MapManager } from "./MapManager/MapManager.js";
+export { MapImage2Scene } from "./MapManager/MapImage2Scene.js";
 export {
   resources,
   updateCanvasSize,

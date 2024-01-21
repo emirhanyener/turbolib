@@ -1,6 +1,6 @@
 import { ImageConverter, ColorGameobject } from "../index.js";
 
-export class MapManager{
+export class MapImage2Scene{
     constructor(gap = 100){
         this.gap = gap;
     }
