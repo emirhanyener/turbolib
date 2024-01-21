@@ -13,6 +13,7 @@ export class GameObject {
     this.childs = [];
     this.parent = null;
     this.relativeVector = new Vector();
+    this.right();
   }
 
   right() {
@@ -153,6 +154,11 @@ export class GameObject {
     resources.scene
       .getGameObjects()
       .splice(resources.scene.getGameObjects().indexOf(this), 1);
+    if(this.getPhysics()){
+      physics
+        .splice(physics.indexOf(this.getPhysics()), 1);
+      this.getPhysics().unlink();
+    }
   }
 
   addChild(child) {
