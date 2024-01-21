@@ -1,4 +1,4 @@
-export class Vector {
+export class Vector{
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -12,6 +12,8 @@ export class Vector {
   update(x, y) {
     this.x = x;
     this.y = y;
+
+    return this;
   }
 
   /**
@@ -22,14 +24,29 @@ export class Vector {
   add(x, y) {
     this.x += x;
     this.y += y;
+
+    return this;
   }
 
   /**
    * Multiply current vector with scale param.
    * @param {int} scale
    */
-  scale(scale) {
+  multiple(vector) {
+    this.x = x * vector.x;
+    this.y = y * vector.y;
+
+    return this;
+  }
+
+  /**
+   * Multiply current vector with scale param.
+   * @param {int} scale
+   */
+  multipleScalar(scale) {
     this.x = x * scale;
     this.y = y * scale;
+
+    return this;
   }
 }
