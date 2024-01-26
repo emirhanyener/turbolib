@@ -1,10 +1,10 @@
 import { physics, resources, functions, Physics, Vector } from "../index.js";
 
 export class GameObject {
-  constructor(name, position, size) {
+  constructor(name, posX, posY, sizeX, sizeY) {
     this.name = name;
-    this.position = position;
-    this.size = size;
+    this.position = new Vector(posX, posY);
+    this.size = new Vector(sizeX, sizeY);
     this.image;
     this.color;
     this.isInteractive = true;
@@ -14,6 +14,14 @@ export class GameObject {
     this.parent = null;
     this.relativeVector = new Vector();
     this.right();
+  }
+
+  move(x, y){
+    this.position.add(x, y);
+
+    this.childs.forEach((item) => {
+      item.move(x, y);
+    });
   }
 
   right() {
@@ -107,11 +115,6 @@ export class GameObject {
     return resources.scene.findGameObjects(name);
   }
 
-  static createWith(name, position, size) {
-    let temp = new GameObject(name, position, size);
-    resources.scene.addGameObject(temp);
-  }
-
   /**
    * Create new gameobject and add to resources.
    * @param {string} name
@@ -123,8 +126,8 @@ export class GameObject {
   static create(name, posX, posY, sizeX, sizeY) {
     let temp = new GameObject(
       name,
-      new Vector(posX, posY),
-      new Vector(sizeX, sizeY)
+      posX, posY,
+      sizeX, sizeY
     );
     resources.scene.addGameObject(temp);
     return temp;
@@ -141,8 +144,8 @@ export class GameObject {
   static createRaw(name, posX, posY, sizeX, sizeY) {
     let temp = new GameObject(
       name,
-      new Vector(posX, posY),
-      new Vector(sizeX, sizeY)
+      posX, posY,
+      sizeX, sizeY
     );
     return temp;
   }
@@ -166,19 +169,18 @@ export class GameObject {
     this.childs.push(child);
   }
   removeChild(child) {
+    child.parent = null;
     this.childs.splice(this.childs.indexOf(child), 1);
   }
 
   setParent(parent) {
     if (this.parent == null) {
       parent.addChild(this);
-      this.parent = parent;
     }
   }
   removeParent() {
     if (this.parent != null) {
       this.parent.removeChild(this);
-      this.parent = null;
     }
   }
 
