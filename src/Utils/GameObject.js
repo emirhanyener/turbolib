@@ -8,6 +8,7 @@ export class GameObject {
     this.image;
     this.color;
     this.isInteractive = true;
+    this.isAbstrack = false;
     this.active = true;
     this.rotationZ = 0;
     this.childs = [];
@@ -192,7 +193,7 @@ export class GameObject {
    * @param {int} y
    * @returns
    */
-  checkTrigger(offsetX, offsetY, x, y) {
+  checkTrigger(offsetX, offsetY, x, y, getAbstract = true) {
     let detectedObjects = [];
     let step = Math.round(
       Math.sqrt(Math.pow(x - offsetX, 2) + Math.pow(y - offsetY, 2))
@@ -205,10 +206,11 @@ export class GameObject {
     ) {
       const item = resources.scene.getGameObjects()[index];
 
+      if (item == this || !item.isInteractive || (!getAbstract && item.isAbstrack)) {
+        break;
+      }
+
       for (let i = 0; i < step + 2; i++) {
-        if (item == this || !item.isInteractive) {
-          break;
-        }
         if (
           this.position.x + offsetX + (x / step) * i >
           item.position.x - item.size.x / 2
