@@ -20,14 +20,14 @@ export class Physics {
             -this.gameObject.size.x / 2,
             this.gameObject.size.y / 2,
             this.gameObject.size.x,
-            Math.round(this.velocity.y < 0 ? 0 : this.velocity.y), false
+            Math.round(this.velocity.y < 0 ? 0 : this.velocity.y), false, true
           )
           .concat(
             this.gameObject.checkTrigger(
               this.gameObject.size.x / 2,
               this.gameObject.size.y / 2,
               -this.gameObject.size.x,
-              Math.round(this.velocity.y < 0 ? 0 : this.velocity.y), false
+              Math.round(this.velocity.y < 0 ? 0 : this.velocity.y), false, true
             )
           );
         if (downArray.length == 0) {
@@ -51,14 +51,14 @@ export class Physics {
             -this.gameObject.size.x / 2,
             -this.gameObject.size.y / 2,
             this.gameObject.size.x,
-            Math.round(this.velocity.y > 0 ? 0 : this.velocity.y), false
+            Math.round(this.velocity.y > 0 ? 0 : this.velocity.y), false, true
           )
           .concat(
             this.gameObject.checkTrigger(
               this.gameObject.size.x / 2,
               -this.gameObject.size.y / 2,
               -this.gameObject.size.x,
-              Math.round(this.velocity.y > 0 ? 0 : this.velocity.y), false
+              Math.round(this.velocity.y > 0 ? 0 : this.velocity.y), false, true
             )
           );
         if (upArray.length > 0) {
@@ -78,14 +78,14 @@ export class Physics {
             this.gameObject.size.x / 2,
             this.gameObject.size.y / 2 - 1,
             Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
-            -this.gameObject.size.y + 2, false
+            -this.gameObject.size.y + 2, false, true
           )
           .concat(
             this.gameObject.checkTrigger(
               this.gameObject.size.x / 2,
               -this.gameObject.size.y / 2 + 1,
               Math.round(this.velocity.x < 0 ? 0 : this.velocity.x),
-              this.gameObject.size.y - 2, false
+              this.gameObject.size.y - 2, false, true
             )
           );
         if (rightArray.length > 0) {
@@ -98,14 +98,14 @@ export class Physics {
             -this.gameObject.size.x / 2,
             this.gameObject.size.y / 2 - 1,
             Math.round(this.velocity.x > 0 ? 0 : this.velocity.x),
-            -this.gameObject.size.y + 2, false
+            -this.gameObject.size.y + 2, false, true
           )
           .concat(
             this.gameObject.checkTrigger(
               -this.gameObject.size.x / 2,
               -this.gameObject.size.y / 2 + 1,
               Math.round(this.velocity.x > 0 ? 0 : this.velocity.x),
-              this.gameObject.size.y - 2, false
+              this.gameObject.size.y - 2, false, true
             )
           );
         if (leftArray.length > 0) {

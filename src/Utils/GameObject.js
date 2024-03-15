@@ -193,7 +193,7 @@ export class GameObject {
    * @param {int} y
    * @returns
    */
-  checkTrigger(offsetX, offsetY, x, y, getAbstract = true) {
+  checkTrigger(offsetX, offsetY, x, y, getAbstract = true, getInteractive = false) {
     let detectedObjects = [];
     let step = Math.round(
       Math.sqrt(Math.pow(x - offsetX, 2) + Math.pow(y - offsetY, 2))
@@ -208,7 +208,7 @@ export class GameObject {
 
 
       for (let i = 0; i < step + 2; i++) {
-        if (item == this || !item.isInteractive || (!getAbstract && item.isAbstract)) {
+        if (item == this || (!getInteractive && !item.isInteractive) || (!getAbstract && item.isAbstract)) {
           break;
         }
         if (
