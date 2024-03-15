@@ -8,7 +8,7 @@ export class GameObject {
     this.image;
     this.color;
     this.isInteractive = true;
-    this.isAbstrack = false;
+    this.isAbstract = false;
     this.active = true;
     this.rotationZ = 0;
     this.childs = [];
@@ -206,11 +206,11 @@ export class GameObject {
     ) {
       const item = resources.scene.getGameObjects()[index];
 
-      if (item == this || !item.isInteractive || (!getAbstract && item.isAbstrack)) {
-        break;
-      }
 
       for (let i = 0; i < step + 2; i++) {
+        if (item == this || !item.isInteractive || (!getAbstract && item.isAbstract)) {
+          break;
+        }
         if (
           this.position.x + offsetX + (x / step) * i >
           item.position.x - item.size.x / 2
