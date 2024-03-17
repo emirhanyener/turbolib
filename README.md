@@ -21,8 +21,8 @@
 - [X] Scenes
 - [X] Collision
 - [X] Map Image to Scene
+- [X] Trigger event
 - [ ] Particles
-- [ ] Trigger event
 
 ## Installation
 This project created with JavaScript. It doesn't need any requirements.
