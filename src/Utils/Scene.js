@@ -11,8 +11,9 @@ import {
 export class Scene {
   constructor() {
     this.gameobjects = [];
+    this.physics = [];
+    this.functions = [];
     this.ui = [];
-    this.images = [];
     this.camera = new Camera(0, 0);
   }
 
@@ -93,10 +94,6 @@ export class Scene {
     }
     this.ui.push(item);
   }
-  isUIExists(name) {
-    if (this.images.find((image) => image.name == name)) return true;
-    return false;
-  }
 
   /**
    * Find added UI element
@@ -112,4 +109,6 @@ export class Scene {
 
     console.error("UI not found");
   }
+
+  build(){}
 }
