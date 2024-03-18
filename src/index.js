@@ -26,8 +26,6 @@ export {
   updateCanvasSize,
   addGlobalFunction,
   loadScene,
-  functions,
-  physics,
   init,
 } from "./turbolib.js";
 

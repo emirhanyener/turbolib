@@ -33,15 +33,14 @@ export function updateCanvasSize() {
   );
 }
 export let resources = new Resources();
-export let physics = [];
-export let functions = [];
 
 export function loadScene(scene) {
   resources.scene = scene;
+  scene.build();
 }
 
 export function addGlobalFunction(fn) {
-  functions.push(fn);
+  resources.scene.functions.push(fn);
 }
 
 ctx.scale(
@@ -240,10 +239,10 @@ export async function init() {
         element.drawUI(ctx);
       }
     });
-    physics.forEach((element) => {
+    resources.scene.physics.forEach((element) => {
       element.calculate();
     });
-    functions.forEach((element) => {
+    resources.scene.functions.forEach((element) => {
       element.run();
     });
     let alertIndex = 1;
