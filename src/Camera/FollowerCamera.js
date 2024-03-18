@@ -2,7 +2,7 @@ import { Camera, Vector, config } from "../index.js";
 
 export class FollowerCamera extends Camera {
   constructor(gameobject) {
-    super(0, 0);
+    super(gameobject.position.x, gameobject.position.y);
     this.gameobject = gameobject;
     this.delay = 1;
   }
