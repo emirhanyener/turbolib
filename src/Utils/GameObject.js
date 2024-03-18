@@ -1,4 +1,4 @@
-import { physics, resources, functions, Physics, Vector } from "../index.js";
+import { resources, Physics, Vector } from "../index.js";
 
 export class GameObject {
   constructor(name, posX, posY, sizeX, sizeY) {
@@ -74,11 +74,11 @@ export class GameObject {
    * Add physics to gameobject.
    */
   addPhysics() {
-    if (physics.find((physics) => physics.gameObject == this)) {
+    if (resources.scene.physics.find((physics) => physics.gameObject == this)) {
       console.error("Physics already added");
     } else {
       let temp = new Physics(this);
-      physics.push(temp);
+      resources.scene.physics.push(temp);
       return temp;
     }
   }
@@ -89,14 +89,14 @@ export class GameObject {
    */
   addFunction(fn) {
     fn.gameobject = this;
-    functions.push(fn);
+    resources.scene.functions.push(fn);
   }
 
   /**
    * Get added physics.
    */
   getPhysics() {
-    let temp = physics.find((physics) => physics.gameObject == this);
+    let temp = resources.scene.physics.find((physics) => physics.gameObject == this);
 
     if (temp) {
       return temp;
@@ -159,7 +159,7 @@ export class GameObject {
       .getGameObjects()
       .splice(resources.scene.getGameObjects().indexOf(this), 1);
     if(this.getPhysics()){
-      physics
+      resources.scene.physics
         .splice(physics.indexOf(this.getPhysics()), 1);
       this.getPhysics().unlink();
     }
@@ -249,7 +249,11 @@ export class GameObject {
     temp.image = this.image;
     temp.color = this.color;
     temp.isInteractive = this.isInteractive;
+    temp.isAbstract = this.isAbstract;
     temp.active = this.active;
+    temp.rotationZ = this.rotationZ;
+    temp.parent = this.parent;
+
     if (this.getPhysics()) {
       temp.addPhysics();
     }
