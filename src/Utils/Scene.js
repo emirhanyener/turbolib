@@ -82,6 +82,10 @@ export class Scene {
   getUI() {
     return this.ui;
   }
+  isUIExists(name) {
+    if (this.ui.find((item) => item.name == name)) return true;
+    return false;
+  }
 
   /**
    * Add new UI element.

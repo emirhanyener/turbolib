@@ -15,9 +15,9 @@ export class UIText extends UI {
     context.fillText(
       this.text,
       this.position.x -
-        (this.gameWorld ? resources.getMainCamera().getPosition().x : 0),
+        (this.gameWorld ? resources.scene.getMainCamera().getPosition().x : 0),
       this.position.y -
-        (this.gameWorld ? resources.getMainCamera().getPosition().y : 0)
+        (this.gameWorld ? resources.scene.getMainCamera().getPosition().y : 0)
     );
   }
 }
