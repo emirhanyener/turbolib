@@ -208,7 +208,7 @@ export class GameObject {
 
 
       for (let i = 0; i < step + 2; i++) {
-        if (item == this || (!getInteractive && !item.isInteractive) || (!getAbstract && item.isAbstract)) {
+        if (item == this || (!getInteractive && !item.isInteractive) || (!getAbstract && item.isAbstract) || !item.active) {
           break;
         }
         if (
