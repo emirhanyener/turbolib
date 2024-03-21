@@ -6,6 +6,8 @@ export class Physics {
     this.velocity = new Vector(0, 0);
     this.isGravityActive = true;
     this.mass = 1;
+    this.solidFriction = 0.1;
+    this.airFriction = 0.001;
     this.isGrounded = false;
     this.bounceRate = 0;
     this.isVisible = false;
@@ -14,6 +16,11 @@ export class Physics {
   calculate() {
     if (this.gameObject) {
       if (this.gameObject.active) {
+        if(this.isGrounded){
+          this.velocity.x *= (1 - this.solidFriction);
+        }else{
+          this.velocity.x *= (1 - this.airFriction);
+        }
         //down
         let downArray = this.gameObject
           .checkTrigger(
