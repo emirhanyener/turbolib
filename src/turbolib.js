@@ -128,23 +128,66 @@ export async function init() {
         ctx.fillStyle = "#000000";
         if (element.image) {
           ctx.save();
+
           ctx.translate(
-            element.position.x -
-              resources.scene.getMainCamera().getPosition().x,
-            +(
-              element.position.y -
-              resources.scene.getMainCamera().getPosition().y
-            )
+            (element.image.getFlipHorizontal() *
+              (element.position.x -
+                element.size.x / 2 +
+                (element.image.flipHorizontal
+                  ? element.size.x -
+                    2 * resources.scene.getMainCamera().getPosition().x
+                  : 0)) -
+              resources.scene.getMainCamera().getPosition().x) *
+              resources.scene.getMainCamera().getZoom() +
+              (config.canvas.width / 2) *
+                (1 - resources.scene.getMainCamera().getZoom()) *
+                element.image.getFlipHorizontal() +
+              (element.size.x / 2) * resources.scene.getMainCamera().getZoom(),
+            (element.image.getFlipVertical() *
+              (element.position.y -
+                element.size.y / 2 +
+                (element.image.flipVertical
+                  ? element.size.y -
+                    2 * resources.scene.getMainCamera().getPosition().y
+                  : 0)) -
+              resources.scene.getMainCamera().getPosition().y) *
+              resources.scene.getMainCamera().getZoom() +
+              (config.canvas.height / 2) *
+                (1 - resources.scene.getMainCamera().getZoom()) *
+                element.image.getFlipVertical() +
+              (element.size.y / 2) * resources.scene.getMainCamera().getZoom()
           );
           ctx.rotate((element.rotationZ * Math.PI) / 180);
           ctx.translate(
             -(
-              element.position.x -
-              resources.scene.getMainCamera().getPosition().x
+              (element.image.getFlipHorizontal() *
+                (element.position.x -
+                  element.size.x / 2 +
+                  (element.image.flipHorizontal
+                    ? element.size.x -
+                      2 * resources.scene.getMainCamera().getPosition().x
+                    : 0)) -
+                resources.scene.getMainCamera().getPosition().x) *
+                resources.scene.getMainCamera().getZoom() +
+              (config.canvas.width / 2) *
+                (1 - resources.scene.getMainCamera().getZoom()) *
+                element.image.getFlipHorizontal() +
+              (element.size.x / 2) * resources.scene.getMainCamera().getZoom()
             ),
             -(
-              element.position.y -
-              resources.scene.getMainCamera().getPosition().y
+              (element.image.getFlipVertical() *
+                (element.position.y -
+                  element.size.y / 2 +
+                  (element.image.flipVertical
+                    ? element.size.y -
+                      2 * resources.scene.getMainCamera().getPosition().y
+                    : 0)) -
+                resources.scene.getMainCamera().getPosition().y) *
+                resources.scene.getMainCamera().getZoom() +
+              (config.canvas.height / 2) *
+                (1 - resources.scene.getMainCamera().getZoom()) *
+                element.image.getFlipVertical() +
+              (element.size.y / 2) * resources.scene.getMainCamera().getZoom()
             )
           );
 
@@ -193,25 +236,36 @@ export async function init() {
           if (element.color) {
             ctx.fillStyle = element.color;
           }
+
           ctx.save();
           ctx.translate(
-            element.position.x -
-              resources.scene.getMainCamera().getPosition().x,
-            +(
-              element.position.y -
-              resources.scene.getMainCamera().getPosition().y
-            )
+            ((element.position.x -
+              element.size.x / 2 -
+              resources.scene.getMainCamera().getPosition().x) *
+              resources.scene.getMainCamera().getZoom() +
+              (config.canvas.width / 2) *
+                (1 - resources.scene.getMainCamera().getZoom()) + element.size.x / 2 * resources.scene.getMainCamera().getZoom()),
+            ((element.position.y -
+              element.size.y / 2 -
+              resources.scene.getMainCamera().getPosition().y) *
+              resources.scene.getMainCamera().getZoom() +
+              (config.canvas.height / 2) *
+                (1 - resources.scene.getMainCamera().getZoom()) + element.size.y / 2 * resources.scene.getMainCamera().getZoom())
           );
           ctx.rotate((element.rotationZ * Math.PI) / 180);
           ctx.translate(
-            -(
-              element.position.x -
-              resources.scene.getMainCamera().getPosition().x
-            ),
-            -(
-              element.position.y -
-              resources.scene.getMainCamera().getPosition().y
-            )
+            -((element.position.x -
+              element.size.x / 2 -
+              resources.scene.getMainCamera().getPosition().x) *
+              resources.scene.getMainCamera().getZoom() +
+              (config.canvas.width / 2) *
+                (1 - resources.scene.getMainCamera().getZoom()) + element.size.x / 2 * resources.scene.getMainCamera().getZoom()),
+            -((element.position.y -
+              element.size.y / 2 -
+              resources.scene.getMainCamera().getPosition().y) *
+              resources.scene.getMainCamera().getZoom() +
+              (config.canvas.height / 2) *
+                (1 - resources.scene.getMainCamera().getZoom()) + element.size.y / 2 * resources.scene.getMainCamera().getZoom())
           );
 
           ctx.fillRect(
@@ -230,6 +284,7 @@ export async function init() {
             element.size.x * resources.scene.getMainCamera().getZoom(),
             element.size.y * resources.scene.getMainCamera().getZoom()
           );
+
           ctx.restore();
         }
       }
