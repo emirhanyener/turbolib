@@ -11,6 +11,7 @@ export class GameObject {
     this.isAbstract = false;
     this.active = true;
     this.rotationZ = 0;
+    this.pivot = new Vector();
     this.childs = [];
     this.parent = null;
     this.relativeVector = new Vector();
