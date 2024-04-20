@@ -4,6 +4,7 @@ export class Physics {
   constructor(gameObject) {
     this.gameObject = gameObject;
     this.velocity = new Vector(0, 0);
+    this.angularVelocity = 0;
     this.isGravityActive = true;
     this.mass = 1;
     this.solidFriction = 0.1;
@@ -21,6 +22,7 @@ export class Physics {
         }else{
           this.velocity.x *= (1 - this.airFriction);
         }
+        this.gameObject.rotationZ += this.angularVelocity;
         //down
         let downArray = this.gameObject
           .checkTrigger(
