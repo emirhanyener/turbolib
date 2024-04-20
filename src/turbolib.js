@@ -244,13 +244,17 @@ export async function init() {
               resources.scene.getMainCamera().getPosition().x) *
               resources.scene.getMainCamera().getZoom() +
               (config.canvas.width / 2) *
-                (1 - resources.scene.getMainCamera().getZoom()) + element.size.x / 2 * resources.scene.getMainCamera().getZoom()),
+                (1 - resources.scene.getMainCamera().getZoom()) + element.size.x / 2 * resources.scene.getMainCamera().getZoom())
+                +
+            element.pivot.x,
             ((element.position.y -
               element.size.y / 2 -
               resources.scene.getMainCamera().getPosition().y) *
               resources.scene.getMainCamera().getZoom() +
               (config.canvas.height / 2) *
                 (1 - resources.scene.getMainCamera().getZoom()) + element.size.y / 2 * resources.scene.getMainCamera().getZoom())
+            +
+            element.pivot.y
           );
           ctx.rotate((element.rotationZ * Math.PI) / 180);
           ctx.translate(
@@ -259,13 +263,17 @@ export async function init() {
               resources.scene.getMainCamera().getPosition().x) *
               resources.scene.getMainCamera().getZoom() +
               (config.canvas.width / 2) *
-                (1 - resources.scene.getMainCamera().getZoom()) + element.size.x / 2 * resources.scene.getMainCamera().getZoom()),
+                (1 - resources.scene.getMainCamera().getZoom()) + element.size.x / 2 * resources.scene.getMainCamera().getZoom())
+                -
+            element.pivot.x,
             -((element.position.y -
               element.size.y / 2 -
               resources.scene.getMainCamera().getPosition().y) *
               resources.scene.getMainCamera().getZoom() +
               (config.canvas.height / 2) *
                 (1 - resources.scene.getMainCamera().getZoom()) + element.size.y / 2 * resources.scene.getMainCamera().getZoom())
+                -
+              element.pivot.y
           );
 
           ctx.fillRect(
