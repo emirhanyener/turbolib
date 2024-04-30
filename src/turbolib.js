@@ -142,7 +142,7 @@ export async function init() {
               (config.canvas.width / 2) *
                 (1 - resources.scene.getMainCamera().getZoom()) *
                 element.image.getFlipHorizontal() +
-              (element.size.x / 2) * resources.scene.getMainCamera().getZoom(),
+              (element.size.x / 2) * resources.scene.getMainCamera().getZoom() + element.pivot.x,
             (element.image.getFlipVertical() *
               (element.position.y -
                 element.size.y / 2 +
@@ -155,7 +155,7 @@ export async function init() {
               (config.canvas.height / 2) *
                 (1 - resources.scene.getMainCamera().getZoom()) *
                 element.image.getFlipVertical() +
-              (element.size.y / 2) * resources.scene.getMainCamera().getZoom()
+              (element.size.y / 2) * resources.scene.getMainCamera().getZoom() + element.pivot.y
           );
           ctx.rotate((element.rotationZ * Math.PI) / 180);
           ctx.translate(
@@ -173,7 +173,7 @@ export async function init() {
                 (1 - resources.scene.getMainCamera().getZoom()) *
                 element.image.getFlipHorizontal() +
               (element.size.x / 2) * resources.scene.getMainCamera().getZoom()
-            ),
+            ) - element.pivot.x,
             -(
               (element.image.getFlipVertical() *
                 (element.position.y -
@@ -188,7 +188,7 @@ export async function init() {
                 (1 - resources.scene.getMainCamera().getZoom()) *
                 element.image.getFlipVertical() +
               (element.size.y / 2) * resources.scene.getMainCamera().getZoom()
-            )
+            ) - element.pivot.y
           );
 
           ctx.scale(
